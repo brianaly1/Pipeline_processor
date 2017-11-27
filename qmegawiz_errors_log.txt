@@ -1,0 +1,16 @@
+
+
+C:/Users/BAly/Documents/EngsciECE3/ComputerOrganization/Project/ECE352_Project_2017/processor_v3_verilog/DataMemory.v
+
+Nov 11 10AM:23:57>: Megafunction LPM_RAM_DQ is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/BAly/Documents/EngsciECE3/ComputerOrganization/Project/ECE352_Project_2017/processor_v3_verilog/DataMemory.v
+
+Nov 12 12AM:09:36>: Megafunction LPM_RAM_DQ is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/BAly/Documents/EngsciECE3/ComputerOrganization/Project/ECE352_Project_2017/processor_v3_verilog/DataMemory.v
+
+Nov 12 12AM:09:40>: Megafunction LPM_RAM_DQ is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
