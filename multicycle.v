@@ -58,7 +58,7 @@ assign	reset =  ~KEY[0]; // KEY is active high
 
 // ------------------- DE2 compatible HEX display ------------------- //
 HEXs	HEX_display(
-	.in0(reg0),.in1(reg1),.in2(reg2),.in3(reg3),.in4(count),.selH({SW[2],SW[0]}),
+	.in0(reg0),.in1(reg1),.in2(reg2),.in3(reg3),.in4(NextCountwire),.selH({SW[2],SW[0]}),
 	.out0(HEX0),.out1(HEX1),.out2(HEX2),.out3(HEX3),
 	.out4(HEX4),.out5(HEX5)
 );
@@ -333,40 +333,43 @@ assign NOOPWire = 8'b00001010;
 // ------------------------- LEDs Indicator ------------------------- //
 always @ (*)
 begin
-
     case({SW[4],SW[3]})
     2'b00:
     begin
-      LEDR[9] = 0;
-      LEDR[8] = 0;
-      LEDR[7] = 0;
-      LEDR[6] = 0;
-      LEDR[5] = 0;
-      LEDR[4] = 0;
-      LEDR[3] = 0;
-      LEDR[2] = 0;
-      LEDR[1] = 0;
-      LEDR[0] = 0;
+      LEDR[9] <= Countwrite;
+      LEDR[8] <= PCWrite;
+      LEDR[7] <= AddrSel;
+      LEDR[6] <= S1Load;
+      LEDR[5] <= NOOPSel1;
+      LEDR[4:3] <= BSel;
+      LEDR[2] <= 0;
+      LEDR[1] <= S2Load;
+      LEDR[0] <= NOOPSel2;
     end
 
     2'b01:
     begin
-      LEDR[9] = 0;
-      LEDR[8:6] = 0;
-      LEDR[5:3] = 0;
-      LEDR[2] = 0;
-      LEDR[1] = 0;
-      LEDR[0] = 0;
+      LEDR[9] <= ALU1;
+      LEDR[8:7] <= ALU2;
+      LEDR[6:4] <= ALUOp;
+      LEDR[3] <= FlagWrite;
+		LEDR[2] <= ALU3;
+      LEDR[1] <= S3Load;
+      LEDR[0] <= NOOPSel3;
     end
 
     2'b10:
     begin
-      LEDR[9] = 0;
-      LEDR[8] = 0;
-      LEDR[7] = 0;
-      LEDR[6:2] = 0;
-      LEDR[1] = 0;
-      LEDR[0] = 0;
+      LEDR[9] <= WBIRLoad;
+      LEDR[8] <= NOOPSel4;
+      LEDR[7] <= MemRead;
+      LEDR[6] <= MemWrite;
+      LEDR[5] <= RegWsel;
+      LEDR[4] <= RFWrite;
+		LEDR[3] <= 1'b0;
+		LEDR[2] <= 1'b0;
+		LEDR[1] <= 1'b0;
+		LEDR[0] <= 1'b0;
     end
 
     2'b11:
