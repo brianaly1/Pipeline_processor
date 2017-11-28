@@ -1,5 +1,5 @@
 Fitter report for multicycle
-Sun Nov 26 23:45:11 2017
+Tue Nov 28 02:11:34 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -65,15 +65,15 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Sun Nov 26 23:45:11 2017       ;
+; Fitter Status                   ; Successful - Tue Nov 28 02:11:34 2017       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; multicycle                                  ;
 ; Top-level Entity Name           ; multicycle                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 147 / 32,070 ( < 1 % )                      ;
-; Total registers                 ; 119                                         ;
+; Logic utilization (in ALMs)     ; 160 / 32,070 ( < 1 % )                      ;
+; Total registers                 ; 128                                         ;
 ; Total pins                      ; 67 / 457 ( 15 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048 / 4,065,280 ( < 1 % )                 ;
@@ -160,7 +160,7 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.5%      ;
+;     Processor 2            ;   0.6%      ;
 ;     Processor 3            ;   0.5%      ;
 ;     Processor 4            ;   0.5%      ;
 +----------------------------+-------------+
@@ -172,9 +172,10 @@ agreement for further details.
 ; Node                       ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                     ; Destination Port ; Destination Port Name ;
 +----------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------+------------------+-----------------------+
 ; KEY[1]~inputCLKENA0        ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                      ;                  ;                       ;
-; FSM:Control|state.reset_s  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; FSM:Control|state.reset_s~DUPLICATE  ;                  ;                       ;
-; register_8bit:DIR_reg|q[0] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; register_8bit:DIR_reg|q[0]~DUPLICATE ;                  ;                       ;
 ; register_8bit:DIR_reg|q[2] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; register_8bit:DIR_reg|q[2]~DUPLICATE ;                  ;                       ;
+; register_8bit:DIR_reg|q[4] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; register_8bit:DIR_reg|q[4]~DUPLICATE ;                  ;                       ;
+; register_8bit:DIR_reg|q[5] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; register_8bit:DIR_reg|q[5]~DUPLICATE ;                  ;                       ;
+; register_8bit:PC4|q[3]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; register_8bit:PC4|q[3]~DUPLICATE     ;                  ;                       ;
 +----------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------+------------------+-----------------------+
 
 
@@ -391,8 +392,8 @@ agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 495 ) ; 0.00 % ( 0 / 495 )         ; 0.00 % ( 0 / 495 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 495 ) ; 0.00 % ( 0 / 495 )         ; 0.00 % ( 0 / 495 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 526 ) ; 0.00 % ( 0 / 526 )         ; 0.00 % ( 0 / 526 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 526 ) ; 0.00 % ( 0 / 526 )         ; 0.00 % ( 0 / 526 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -415,7 +416,7 @@ agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 495 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 526 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -431,41 +432,41 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 +-------------------------------------------------------------+--------------------+-------+
 ; Resource                                                    ; Usage              ; %     ;
 +-------------------------------------------------------------+--------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 147 / 32,070       ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 147                ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 161 / 32,070       ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 35                 ;       ;
-;         [b] ALMs used for LUT logic                         ; 103                ;       ;
-;         [c] ALMs used for registers                         ; 23                 ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 160 / 32,070       ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 160                ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 183 / 32,070       ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 39                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 122                ;       ;
+;         [c] ALMs used for registers                         ; 22                 ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 16 / 32,070        ; < 1 % ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 2 / 32,070         ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 23 / 32,070        ; < 1 % ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32,070         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
-;         [c] Due to LAB input limits                         ; 2                  ;       ;
+;         [c] Due to LAB input limits                         ; 0                  ;       ;
 ;         [d] Due to virtual I/Os                             ; 0                  ;       ;
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 20 / 3,207         ; < 1 % ;
-;     -- Logic LABs                                           ; 20                 ;       ;
+; Total LABs:  partially or completely used                   ; 24 / 3,207         ; < 1 % ;
+;     -- Logic LABs                                           ; 24                 ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 237                ;       ;
+; Combinational ALUT usage for logic                          ; 260                ;       ;
 ;     -- 7 input functions                                    ; 0                  ;       ;
-;     -- 6 input functions                                    ; 54                 ;       ;
-;     -- 5 input functions                                    ; 35                 ;       ;
-;     -- 4 input functions                                    ; 76                 ;       ;
-;     -- <=3 input functions                                  ; 72                 ;       ;
-; Combinational ALUT usage for route-throughs                 ; 11                 ;       ;
+;     -- 6 input functions                                    ; 62                 ;       ;
+;     -- 5 input functions                                    ; 36                 ;       ;
+;     -- 4 input functions                                    ; 88                 ;       ;
+;     -- <=3 input functions                                  ; 74                 ;       ;
+; Combinational ALUT usage for route-throughs                 ; 16                 ;       ;
 ;                                                             ;                    ;       ;
-; Dedicated logic registers                                   ; 119                ;       ;
+; Dedicated logic registers                                   ; 128                ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 116 / 64,140       ; < 1 % ;
-;         -- Secondary logic registers                        ; 3 / 64,140         ; < 1 % ;
+;         -- Primary logic registers                          ; 120 / 64,140       ; < 1 % ;
+;         -- Secondary logic registers                        ; 8 / 64,140         ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
-;         -- Design implementation registers                  ; 116                ;       ;
-;         -- Routing optimization registers                   ; 3                  ;       ;
+;         -- Design implementation registers                  ; 124                ;       ;
+;         -- Routing optimization registers                   ; 4                  ;       ;
 ;                                                             ;                    ;       ;
 ; Virtual pins                                                ; 0                  ;       ;
 ; I/O pins                                                    ; 67 / 457           ; 15 %  ;
@@ -520,11 +521,11 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; Oscillator blocks                                           ; 0 / 1              ; 0 %   ;
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 0.3% / 0.3% / 0.2% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 6.2% / 6.5% / 5.3% ;       ;
-; Maximum fan-out                                             ; 120                ;       ;
-; Highest non-global fan-out                                  ; 119                ;       ;
-; Total fan-out                                               ; 1631               ;       ;
+; Average interconnect usage (total/H/V)                      ; 0.5% / 0.5% / 0.3% ;       ;
+; Peak interconnect usage (total/H/V)                         ; 9.0% / 9.7% / 6.7% ;       ;
+; Maximum fan-out                                             ; 129                ;       ;
+; Highest non-global fan-out                                  ; 128                ;       ;
+; Total fan-out                                               ; 1749               ;       ;
 ; Average fan-out                                             ; 3.24               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
@@ -534,44 +535,44 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+-----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 147 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 147                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 161 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 35                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 103                   ; 0                              ;
-;         [c] ALMs used for registers                         ; 23                    ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 160 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 160                   ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 183 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 39                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 122                   ; 0                              ;
+;         [c] ALMs used for registers                         ; 22                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 16 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 2 / 32070 ( < 1 % )   ; 0 / 32070 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 23 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )     ; 0 / 32070 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
-;         [c] Due to LAB input limits                         ; 2                     ; 0                              ;
+;         [c] Due to LAB input limits                         ; 0                     ; 0                              ;
 ;         [d] Due to virtual I/Os                             ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 20 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 20                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 24 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 24                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 237                   ; 0                              ;
+; Combinational ALUT usage for logic                          ; 260                   ; 0                              ;
 ;     -- 7 input functions                                    ; 0                     ; 0                              ;
-;     -- 6 input functions                                    ; 54                    ; 0                              ;
-;     -- 5 input functions                                    ; 35                    ; 0                              ;
-;     -- 4 input functions                                    ; 76                    ; 0                              ;
-;     -- <=3 input functions                                  ; 72                    ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 11                    ; 0                              ;
+;     -- 6 input functions                                    ; 62                    ; 0                              ;
+;     -- 5 input functions                                    ; 36                    ; 0                              ;
+;     -- 4 input functions                                    ; 88                    ; 0                              ;
+;     -- <=3 input functions                                  ; 74                    ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 16                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 116 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 3 / 64140 ( < 1 % )   ; 0 / 64140 ( 0 % )              ;
+;         -- Primary logic registers                          ; 120 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 8 / 64140 ( < 1 % )   ; 0 / 64140 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
-;         -- Design implementation registers                  ; 116                   ; 0                              ;
-;         -- Routing optimization registers                   ; 3                     ; 0                              ;
+;         -- Design implementation registers                  ; 124                   ; 0                              ;
+;         -- Routing optimization registers                   ; 4                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ;                                                             ;                       ;                                ;
 ; Virtual pins                                                ; 0                     ; 0                              ;
@@ -589,8 +590,8 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 1638                  ; 0                              ;
-;     -- Registered Connections                               ; 477                   ; 0                              ;
+;     -- Total Connections                                    ; 1756                  ; 0                              ;
+;     -- Registered Connections                               ; 520                   ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
 ;     -- Top                                                  ; 0                     ; 0                              ;
@@ -622,8 +623,8 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 ; Name   ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
-; KEY[0] ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 119                   ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; KEY[1] ; AA15  ; 3B       ; 36           ; 0            ; 17           ; 120                   ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; KEY[0] ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 128                   ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; KEY[1] ; AA15  ; 3B       ; 36           ; 0            ; 17           ; 129                   ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[0]  ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 24                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[1]  ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[2]  ; AF9   ; 3A       ; 8            ; 0            ; 34           ; 24                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
@@ -680,14 +681,14 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; HEX5[5]  ; AA26  ; 5B       ; 89           ; 23           ; 3            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; HEX5[6]  ; AA25  ; 5A       ; 89           ; 9            ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; LEDR[0]  ; V16   ; 4A       ; 52           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; LEDR[10] ; AD20  ; 4A       ; 82           ; 0            ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; LEDR[11] ; E12   ; 8A       ; 22           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; LEDR[12] ; AK18  ; 4A       ; 58           ; 0            ; 57           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; LEDR[10] ; AH5   ; 3A       ; 14           ; 0            ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; LEDR[11] ; AK18  ; 4A       ; 58           ; 0            ; 57           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; LEDR[12] ; C10   ; 8A       ; 28           ; 81           ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; LEDR[13] ; AE11  ; 3A       ; 4            ; 0            ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; LEDR[14] ; AH19  ; 4A       ; 58           ; 0            ; 91           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; LEDR[15] ; J14   ; 8A       ; 32           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; LEDR[14] ; J14   ; 8A       ; 32           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; LEDR[15] ; AE9   ; 3A       ; 2            ; 0            ; 91           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; LEDR[16] ; A5    ; 8A       ; 26           ; 81           ; 91           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; LEDR[17] ; AE18  ; 4A       ; 66           ; 0            ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; LEDR[17] ; F14   ; 8A       ; 36           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; LEDR[1]  ; W16   ; 4A       ; 52           ; 0            ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; LEDR[2]  ; V17   ; 4A       ; 60           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; LEDR[3]  ; V18   ; 4A       ; 80           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
@@ -707,9 +708,9 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 +----------+-------------------+---------------+--------------+---------------+
 ; B2L      ; 0 / 0 ( -- )      ; --            ; --           ; --            ;
 ; B1L      ; 0 / 0 ( -- )      ; --            ; --           ; --            ;
-; 3A       ; 6 / 32 ( 19 % )   ; 2.5V          ; --           ; 2.5V          ;
+; 3A       ; 8 / 32 ( 25 % )   ; 2.5V          ; --           ; 2.5V          ;
 ; 3B       ; 2 / 48 ( 4 % )    ; 2.5V          ; --           ; 2.5V          ;
-; 4A       ; 11 / 80 ( 14 % )  ; 2.5V          ; --           ; 2.5V          ;
+; 4A       ; 8 / 80 ( 10 % )   ; 2.5V          ; --           ; 2.5V          ;
 ; 5A       ; 32 / 32 ( 100 % ) ; 2.5V          ; --           ; 2.5V          ;
 ; 5B       ; 13 / 16 ( 81 % )  ; 2.5V          ; --           ; 2.5V          ;
 ; 6B       ; 0 / 44 ( 0 % )    ; 2.5V          ; --           ; 2.5V          ;
@@ -718,7 +719,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; 7B       ; 0 / 22 ( 0 % )    ; 2.5V          ; --           ; 2.5V          ;
 ; 7C       ; 0 / 12 ( 0 % )    ; 2.5V          ; --           ; 2.5V          ;
 ; 7D       ; 0 / 14 ( 0 % )    ; 2.5V          ; --           ; 2.5V          ;
-; 8A       ; 3 / 80 ( 4 % )    ; 2.5V          ; --           ; 2.5V          ;
+; 8A       ; 4 / 80 ( 5 % )    ; 2.5V          ; --           ; 2.5V          ;
 +----------+-------------------+---------------+--------------+---------------+
 
 
@@ -864,7 +865,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; AD17     ; 160        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AD18     ;            ; 4A             ; VCCIO4A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AD19     ; 184        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AD20     ; 199        ; 4A             ; LEDR[10]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AD20     ; 199        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AD21     ; 197        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AD22     ;            ; --             ; VCC_AUX                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AD23     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -883,7 +884,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; AE6      ; 51         ; 3A             ; ^AS_DATA0, ASDO, DATA0          ;        ;              ;                     ; Weak Pull Up ;                 ; --       ; On           ;
 ; AE7      ; 60         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AE8      ; 47         ; 3A             ; ^AS_DATA2, DATA2                ;        ;              ;                     ; Weak Pull Up ;                 ; --       ; On           ;
-; AE9      ; 53         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; AE9      ; 53         ; 3A             ; LEDR[15]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AE10     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AE11     ; 59         ; 3A             ; LEDR[13]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AE12     ; 52         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -892,7 +893,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; AE15     ;            ; 3B             ; VCCIO3B                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AE16     ; 139        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AE17     ; 135        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AE18     ; 167        ; 4A             ; LEDR[17]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AE18     ; 167        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AE19     ; 165        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AE20     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AE21     ;            ; 3B, 4A         ; VCCPD3B4A                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -969,7 +970,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; AH2      ; 69         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH3      ; 81         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH4      ; 61         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AH5      ; 76         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; AH5      ; 76         ; 3A             ; LEDR[10]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AH6      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AH7      ; 115        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH8      ; 113        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -983,7 +984,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; AH16     ;            ; 4A             ; VCCIO4A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AH17     ; 147        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH18     ; 145        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AH19     ; 148        ; 4A             ; LEDR[14]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AH19     ; 148        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH20     ; 141        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH21     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AH22     ; 164        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1041,7 +1042,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; AK15     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AK16     ; 140        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AK17     ;            ; 4A             ; VREFB4AN0                       ; power  ;              ;                     ; --           ;                 ; --       ; --           ;
-; AK18     ; 149        ; 4A             ; LEDR[12]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AK18     ; 149        ; 4A             ; LEDR[11]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AK19     ; 153        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AK20     ;            ; 4A             ; VCCIO4A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AK21     ; 171        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1092,7 +1093,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; C7       ; 475        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C8       ; 479        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C9       ; 485        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; C10      ; 483        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; C10      ; 483        ; 8A             ; LEDR[12]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; C11      ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; C12      ; 467        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C13      ; 462        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1154,7 +1155,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; E9       ; 478        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E10      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; E11      ; 504        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; E12      ; 494        ; 8A             ; LEDR[11]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; E12      ; 494        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E13      ; 488        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E14      ; 454        ; 7D             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E15      ;            ; 7D             ; VCCIO7D_HPS                     ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -1186,7 +1187,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; F11      ; 502        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; F12      ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; F13      ; 486        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; F14      ; 468        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; F14      ; 468        ; 8A             ; LEDR[17]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; F15      ; 466        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; F16      ; 442        ; 7D             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; F17      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -1276,7 +1277,7 @@ The pin-out file can be found in C:/Users/BAly/Documents/EngsciECE3/ComputerOrga
 ; J11      ;            ; --             ; VCCPGM                          ; power  ;              ; 1.8V/2.5V/3.0V/3.3V ; --           ;                 ; --       ; --           ;
 ; J12      ; 516        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; J13      ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; J14      ; 476        ; 8A             ; LEDR[15]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; J14      ; 476        ; 8A             ; LEDR[14]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; J15      ;            ;                ; DNU                             ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; J16      ;            ; --             ; VCC_AUX                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; J17      ;            ; 7C             ; VCCPD7C_HPS                     ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -1715,41 +1716,44 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                   ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name     ; Library Name ;
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |multicycle                                  ; 146.5 (1.4)          ; 161.0 (1.2)                      ; 16.0 (0.0)                                        ; 1.5 (0.2)                        ; 0.0 (0.0)            ; 237 (1)             ; 119 (2)                   ; 0 (0)         ; 2048              ; 1     ; 0          ; 67   ; 0            ; |multicycle                                                                                            ; multicycle      ; work         ;
-;    |ALU:ALU|                                 ; 45.2 (45.2)          ; 47.2 (47.2)                      ; 3.2 (3.2)                                         ; 1.2 (1.2)                        ; 0.0 (0.0)            ; 68 (68)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|ALU:ALU                                                                                    ; ALU             ; work         ;
-;    |Adder:BranchAdder|                       ; 2.0 (2.0)            ; 2.0 (2.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|Adder:BranchAdder                                                                          ; Adder           ; work         ;
-;    |FSM:Control|                             ; 17.1 (17.1)          ; 17.0 (17.0)                      ; 0.0 (0.0)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 44 (44)             ; 5 (5)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|FSM:Control                                                                                ; FSM             ; work         ;
-;    |HEXs:HEX_display|                        ; 27.0 (6.2)           ; 29.3 (8.5)                       ; 2.3 (2.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 66 (24)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display                                                                           ; HEXs            ; work         ;
+; |multicycle                                  ; 160.0 (1.2)          ; 182.0 (1.2)                      ; 22.0 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 260 (1)             ; 128 (2)                   ; 0 (0)         ; 2048              ; 1     ; 0          ; 67   ; 0            ; |multicycle                                                                                            ; multicycle      ; work         ;
+;    |ALU:ALU|                                 ; 45.3 (45.3)          ; 48.7 (48.7)                      ; 3.4 (3.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 68 (68)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|ALU:ALU                                                                                    ; ALU             ; work         ;
+;    |Adder8b:BranchAdder|                     ; 4.0 (4.0)            ; 4.0 (4.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|Adder8b:BranchAdder                                                                        ; Adder8b         ; work         ;
+;    |Adder:PCAdder|                           ; 1.8 (1.8)            ; 2.0 (2.0)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|Adder:PCAdder                                                                              ; Adder           ; work         ;
+;    |FSM:Control|                             ; 17.5 (17.5)          ; 20.3 (20.3)                      ; 2.8 (2.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 43 (43)             ; 4 (4)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|FSM:Control                                                                                ; FSM             ; work         ;
+;    |HEXs:HEX_display|                        ; 26.8 (6.3)           ; 28.7 (8.0)                       ; 1.8 (1.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 66 (24)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display                                                                           ; HEXs            ; work         ;
 ;       |HEX:hex0|                             ; 3.3 (3.3)            ; 3.3 (3.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex0                                                                  ; HEX             ; work         ;
 ;       |HEX:hex1|                             ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex1                                                                  ; HEX             ; work         ;
-;       |HEX:hex2|                             ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex2                                                                  ; HEX             ; work         ;
+;       |HEX:hex2|                             ; 3.3 (3.3)            ; 3.3 (3.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex2                                                                  ; HEX             ; work         ;
 ;       |HEX:hex3|                             ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex3                                                                  ; HEX             ; work         ;
 ;       |HEX:hex4|                             ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex4                                                                  ; HEX             ; work         ;
-;       |HEX:hex5|                             ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex5                                                                  ; HEX             ; work         ;
-;    |RF:RF_block|                             ; 11.0 (11.0)          ; 14.3 (14.3)                      ; 3.3 (3.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 4 (4)               ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|RF:RF_block                                                                                ; RF              ; work         ;
+;       |HEX:hex5|                             ; 3.3 (3.3)            ; 3.5 (3.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|HEXs:HEX_display|HEX:hex5                                                                  ; HEX             ; work         ;
+;    |RF:RF_block|                             ; 7.7 (7.7)            ; 13.7 (13.7)                      ; 6.0 (6.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 4 (4)               ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|RF:RF_block                                                                                ; RF              ; work         ;
 ;    |memory:DualMem|                          ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 2048              ; 1     ; 0          ; 0    ; 0            ; |multicycle|memory:DualMem                                                                             ; memory          ; work         ;
 ;       |DualMem:inst|                         ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 2048              ; 1     ; 0          ; 0    ; 0            ; |multicycle|memory:DualMem|DualMem:inst                                                                ; DualMem         ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 2048              ; 1     ; 0          ; 0    ; 0            ; |multicycle|memory:DualMem|DualMem:inst|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
-;             |altsyncram_9jf2:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 2048              ; 1     ; 0          ; 0    ; 0            ; |multicycle|memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated ; altsyncram_9jf2 ; work         ;
-;    |mux2to1_2bit:R1Sel_mux|                  ; 0.3 (0.3)            ; 0.3 (0.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_2bit:R1Sel_mux                                                                     ; mux2to1_2bit    ; work         ;
-;    |mux2to1_8bit:ALU1_mux|                   ; 4.7 (4.7)            ; 5.0 (5.0)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:ALU1_mux                                                                      ; mux2to1_8bit    ; work         ;
-;    |mux2to1_8bit:Data1|                      ; 4.8 (4.8)            ; 4.8 (4.8)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:Data1                                                                         ; mux2to1_8bit    ; work         ;
-;    |mux2to1_8bit:Data2|                      ; 5.2 (5.2)            ; 5.2 (5.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:Data2                                                                         ; mux2to1_8bit    ; work         ;
-;    |mux2to1_8bit:NOOPMux1|                   ; 2.2 (2.2)            ; 2.2 (2.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:NOOPMux1                                                                      ; mux2to1_8bit    ; work         ;
-;    |mux2to1_8bit:NOOPMux2|                   ; 0.6 (0.6)            ; 0.7 (0.7)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:NOOPMux2                                                                      ; mux2to1_8bit    ; work         ;
+;             |altsyncram_cve2:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 2048              ; 1     ; 0          ; 0    ; 0            ; |multicycle|memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated ; altsyncram_cve2 ; work         ;
+;    |mux2to1_2bit:R1Sel_mux|                  ; 0.6 (0.6)            ; 0.6 (0.6)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_2bit:R1Sel_mux                                                                     ; mux2to1_2bit    ; work         ;
+;    |mux2to1_8bit:ALU1_mux|                   ; 4.0 (4.0)            ; 5.7 (5.7)                        ; 1.7 (1.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:ALU1_mux                                                                      ; mux2to1_8bit    ; work         ;
+;    |mux2to1_8bit:Data1|                      ; 4.3 (4.3)            ; 5.2 (5.2)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:Data1                                                                         ; mux2to1_8bit    ; work         ;
+;    |mux2to1_8bit:Data2|                      ; 4.3 (4.3)            ; 5.2 (5.2)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:Data2                                                                         ; mux2to1_8bit    ; work         ;
+;    |mux2to1_8bit:NOOPMux1|                   ; 1.8 (1.8)            ; 2.0 (2.0)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:NOOPMux1                                                                      ; mux2to1_8bit    ; work         ;
+;    |mux2to1_8bit:NOOPMux2|                   ; 0.5 (0.5)            ; 0.8 (0.8)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:NOOPMux2                                                                      ; mux2to1_8bit    ; work         ;
 ;    |mux2to1_8bit:NOOPMux3|                   ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:NOOPMux3                                                                      ; mux2to1_8bit    ; work         ;
-;    |mux2to1_8bit:NOOPMux4|                   ; 0.3 (0.3)            ; 0.3 (0.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:NOOPMux4                                                                      ; mux2to1_8bit    ; work         ;
-;    |mux4to1_8bit:ALU2_mux|                   ; 3.0 (3.0)            ; 4.5 (4.5)                        ; 1.5 (1.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 5 (5)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux4to1_8bit:ALU2_mux                                                                      ; mux4to1_8bit    ; work         ;
-;    |register_8bit:ALUOut_reg|                ; 3.7 (3.7)            ; 3.8 (3.8)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:ALUOut_reg                                                                   ; register_8bit   ; work         ;
-;    |register_8bit:DIR_reg|                   ; 2.2 (2.2)            ; 2.7 (2.7)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 10 (10)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:DIR_reg                                                                      ; register_8bit   ; work         ;
-;    |register_8bit:PC1|                       ; 2.0 (2.0)            ; 2.0 (2.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:PC1                                                                          ; register_8bit   ; work         ;
-;    |register_8bit:PC2|                       ; 0.5 (0.5)            ; 3.5 (3.5)                        ; 3.0 (3.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:PC2                                                                          ; register_8bit   ; work         ;
-;    |register_8bit:PC3|                       ; 0.5 (0.5)            ; 3.5 (3.5)                        ; 3.0 (3.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:PC3                                                                          ; register_8bit   ; work         ;
-;    |register_8bit:R1|                        ; 2.4 (2.4)            ; 2.4 (2.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:R1                                                                           ; register_8bit   ; work         ;
-;    |register_8bit:R2|                        ; 2.6 (2.6)            ; 2.6 (2.6)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:R2                                                                           ; register_8bit   ; work         ;
-;    |register_8bit:RFIR_reg|                  ; 2.3 (2.3)            ; 2.3 (2.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:RFIR_reg                                                                     ; register_8bit   ; work         ;
-;    |register_8bit:WBIR_reg|                  ; 1.6 (1.6)            ; 1.6 (1.6)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 6 (6)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:WBIR_reg                                                                     ; register_8bit   ; work         ;
-;    |register_8bit:XIR_reg|                   ; 2.3 (2.3)            ; 2.3 (2.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:XIR_reg                                                                      ; register_8bit   ; work         ;
+;    |mux2to1_8bit:NOOPMux4|                   ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux2to1_8bit:NOOPMux4                                                                      ; mux2to1_8bit    ; work         ;
+;    |mux3to1_8bit:BranchSel_mux|              ; 8.8 (8.8)            ; 8.8 (8.8)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 16 (16)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux3to1_8bit:BranchSel_mux                                                                 ; mux3to1_8bit    ; work         ;
+;    |mux4to1_8bit:ALU2_mux|                   ; 3.7 (3.7)            ; 4.5 (4.5)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 5 (5)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|mux4to1_8bit:ALU2_mux                                                                      ; mux4to1_8bit    ; work         ;
+;    |register_8bit:ALUOut_reg|                ; 3.9 (3.9)            ; 3.9 (3.9)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:ALUOut_reg                                                                   ; register_8bit   ; work         ;
+;    |register_8bit:DIR_reg|                   ; 2.1 (2.1)            ; 2.7 (2.7)                        ; 0.6 (0.6)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 11 (11)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:DIR_reg                                                                      ; register_8bit   ; work         ;
+;    |register_8bit:PC1|                       ; 2.4 (2.4)            ; 2.4 (2.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:PC1                                                                          ; register_8bit   ; work         ;
+;    |register_8bit:PC2|                       ; 1.6 (1.6)            ; 2.9 (2.9)                        ; 1.3 (1.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:PC2                                                                          ; register_8bit   ; work         ;
+;    |register_8bit:PC3|                       ; 2.1 (2.1)            ; 2.7 (2.7)                        ; 0.6 (0.6)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:PC3                                                                          ; register_8bit   ; work         ;
+;    |register_8bit:PC4|                       ; 2.5 (2.5)            ; 2.9 (2.9)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 9 (9)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:PC4                                                                          ; register_8bit   ; work         ;
+;    |register_8bit:R1|                        ; 2.2 (2.2)            ; 2.6 (2.6)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:R1                                                                           ; register_8bit   ; work         ;
+;    |register_8bit:R2|                        ; 2.2 (2.2)            ; 2.6 (2.6)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:R2                                                                           ; register_8bit   ; work         ;
+;    |register_8bit:RFIR_reg|                  ; 2.3 (2.3)            ; 2.5 (2.5)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:RFIR_reg                                                                     ; register_8bit   ; work         ;
+;    |register_8bit:WBIR_reg|                  ; 1.8 (1.8)            ; 2.3 (2.3)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 6 (6)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:WBIR_reg                                                                     ; register_8bit   ; work         ;
+;    |register_8bit:XIR_reg|                   ; 2.4 (2.4)            ; 2.4 (2.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 8 (8)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |multicycle|register_8bit:XIR_reg                                                                      ; register_8bit   ; work         ;
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1822,8 +1826,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDR[15] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LEDR[16] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LEDR[17] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; SW[0]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; SW[2]    ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; SW[0]    ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; SW[2]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[1]   ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[0]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +----------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
@@ -1838,31 +1842,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SW[3]                                       ;                   ;         ;
 ; SW[4]                                       ;                   ;         ;
 ; SW[0]                                       ;                   ;         ;
-;      - HEXs:HEX_display|Mux23~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux22~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux21~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux20~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux19~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux18~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux17~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux16~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux15~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux14~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux13~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux12~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux11~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux10~0             ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux9~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux8~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux7~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux6~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux5~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux4~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux3~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux2~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux1~0              ; 0                 ; 0       ;
-;      - HEXs:HEX_display|Mux0~0              ; 0                 ; 0       ;
-; SW[2]                                       ;                   ;         ;
 ;      - HEXs:HEX_display|Mux23~0             ; 1                 ; 0       ;
 ;      - HEXs:HEX_display|Mux22~0             ; 1                 ; 0       ;
 ;      - HEXs:HEX_display|Mux21~0             ; 1                 ; 0       ;
@@ -1887,6 +1866,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - HEXs:HEX_display|Mux2~0              ; 1                 ; 0       ;
 ;      - HEXs:HEX_display|Mux1~0              ; 1                 ; 0       ;
 ;      - HEXs:HEX_display|Mux0~0              ; 1                 ; 0       ;
+; SW[2]                                       ;                   ;         ;
+;      - HEXs:HEX_display|Mux23~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux22~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux21~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux20~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux19~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux18~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux17~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux16~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux15~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux14~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux13~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux12~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux11~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux10~0             ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux9~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux8~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux7~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux6~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux5~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux4~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux3~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux2~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux1~0              ; 0                 ; 0       ;
+;      - HEXs:HEX_display|Mux0~0              ; 0                 ; 0       ;
 ; KEY[1]                                      ;                   ;         ;
 ;      - KEY[1]~inputCLKENA0                  ; 1                 ; 0       ;
 ; KEY[0]                                      ;                   ;         ;
@@ -1922,54 +1926,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - RF:RF_block|k0[5]                    ; 0                 ; 0       ;
 ;      - RF:RF_block|k0[6]                    ; 0                 ; 0       ;
 ;      - RF:RF_block|k0[7]                    ; 0                 ; 0       ;
+;      - register_8bit:XIR_reg|q[7]           ; 0                 ; 0       ;
 ;      - register_8bit:WBIR_reg|q[0]          ; 0                 ; 0       ;
+;      - register_8bit:WBIR_reg|q[2]          ; 0                 ; 0       ;
+;      - register_8bit:RFIR_reg|q[2]          ; 0                 ; 0       ;
 ;      - register_8bit:XIR_reg|q[4]           ; 0                 ; 0       ;
 ;      - register_8bit:XIR_reg|q[6]           ; 0                 ; 0       ;
-;      - register_8bit:WBIR_reg|q[6]          ; 0                 ; 0       ;
-;      - register_8bit:WBIR_reg|q[7]          ; 0                 ; 0       ;
-;      - register_8bit:RFIR_reg|q[2]          ; 0                 ; 0       ;
-;      - register_8bit:XIR_reg|q[0]           ; 0                 ; 0       ;
 ;      - register_8bit:XIR_reg|q[5]           ; 0                 ; 0       ;
-;      - register_8bit:XIR_reg|q[2]           ; 0                 ; 0       ;
-;      - register_8bit:XIR_reg|q[7]           ; 0                 ; 0       ;
 ;      - register_8bit:RFIR_reg|q[4]          ; 0                 ; 0       ;
 ;      - register_8bit:RFIR_reg|q[5]          ; 0                 ; 0       ;
-;      - register_8bit:RFIR_reg|q[0]          ; 0                 ; 0       ;
 ;      - register_8bit:RFIR_reg|q[6]          ; 0                 ; 0       ;
 ;      - register_8bit:RFIR_reg|q[7]          ; 0                 ; 0       ;
-;      - register_8bit:WBIR_reg|q[2]          ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[2]               ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[3]               ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[1]               ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[0]               ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[6]               ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[4]               ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[5]               ; 0                 ; 0       ;
-;      - register_8bit:PC1|q[7]               ; 0                 ; 0       ;
-;      - register_8bit:ALUOut_reg|q[0]        ; 0                 ; 0       ;
-;      - register_8bit:ALUOut_reg|q[1]        ; 0                 ; 0       ;
-;      - register_8bit:ALUOut_reg|q[2]        ; 0                 ; 0       ;
-;      - register_8bit:ALUOut_reg|q[4]        ; 0                 ; 0       ;
-;      - register_8bit:ALUOut_reg|q[5]        ; 0                 ; 0       ;
+;      - register_8bit:RFIR_reg|q[0]          ; 0                 ; 0       ;
+;      - register_8bit:XIR_reg|q[0]           ; 0                 ; 0       ;
+;      - register_8bit:XIR_reg|q[2]           ; 0                 ; 0       ;
+;      - register_8bit:WBIR_reg|q[7]          ; 0                 ; 0       ;
+;      - register_8bit:WBIR_reg|q[6]          ; 0                 ; 0       ;
 ;      - register_8bit:ALUOut_reg|q[6]        ; 0                 ; 0       ;
 ;      - register_8bit:ALUOut_reg|q[7]        ; 0                 ; 0       ;
 ;      - register_8bit:ALUOut_reg|q[3]        ; 0                 ; 0       ;
-;      - register_8bit:R1|q[2]                ; 0                 ; 0       ;
-;      - register_8bit:R1|q[6]                ; 0                 ; 0       ;
-;      - register_8bit:R1|q[3]                ; 0                 ; 0       ;
-;      - register_8bit:R1|q[4]                ; 0                 ; 0       ;
-;      - register_8bit:R1|q[1]                ; 0                 ; 0       ;
-;      - register_8bit:R1|q[5]                ; 0                 ; 0       ;
+;      - register_8bit:ALUOut_reg|q[2]        ; 0                 ; 0       ;
+;      - register_8bit:ALUOut_reg|q[0]        ; 0                 ; 0       ;
+;      - register_8bit:ALUOut_reg|q[4]        ; 0                 ; 0       ;
+;      - register_8bit:ALUOut_reg|q[5]        ; 0                 ; 0       ;
+;      - register_8bit:ALUOut_reg|q[1]        ; 0                 ; 0       ;
 ;      - register_8bit:R1|q[7]                ; 0                 ; 0       ;
+;      - register_8bit:R1|q[6]                ; 0                 ; 0       ;
+;      - register_8bit:R1|q[5]                ; 0                 ; 0       ;
+;      - register_8bit:R1|q[3]                ; 0                 ; 0       ;
 ;      - register_8bit:R1|q[0]                ; 0                 ; 0       ;
-;      - register_8bit:R2|q[1]                ; 0                 ; 0       ;
-;      - register_8bit:R2|q[4]                ; 0                 ; 0       ;
-;      - register_8bit:R2|q[6]                ; 0                 ; 0       ;
-;      - register_8bit:R2|q[3]                ; 0                 ; 0       ;
+;      - register_8bit:R1|q[1]                ; 0                 ; 0       ;
+;      - register_8bit:R1|q[2]                ; 0                 ; 0       ;
+;      - register_8bit:R1|q[4]                ; 0                 ; 0       ;
 ;      - register_8bit:R2|q[7]                ; 0                 ; 0       ;
-;      - register_8bit:R2|q[2]                ; 0                 ; 0       ;
+;      - register_8bit:R2|q[6]                ; 0                 ; 0       ;
 ;      - register_8bit:R2|q[0]                ; 0                 ; 0       ;
+;      - register_8bit:R2|q[2]                ; 0                 ; 0       ;
+;      - register_8bit:R2|q[3]                ; 0                 ; 0       ;
 ;      - register_8bit:R2|q[5]                ; 0                 ; 0       ;
+;      - register_8bit:R2|q[4]                ; 0                 ; 0       ;
+;      - register_8bit:R2|q[1]                ; 0                 ; 0       ;
 ;      - FSM:Control|state.normal_op          ; 0                 ; 0       ;
 ;      - register_8bit:XIR_reg|q[3]           ; 0                 ; 0       ;
 ;      - register_8bit:WBIR_reg|q[1]          ; 0                 ; 0       ;
@@ -1983,21 +1979,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - N                                    ; 0                 ; 0       ;
 ;      - FSM:Control|state.reset_s            ; 0                 ; 0       ;
 ;      - FSM:Control|state.b_fail             ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[0]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[0]               ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[1]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[1]               ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[2]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[2]               ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[3]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[3]               ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[4]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[4]               ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[5]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[5]               ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[6]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[6]               ; 0                 ; 0       ;
+;      - register_8bit:PC1|q[7]               ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[7]               ; 0                 ; 0       ;
 ;      - register_8bit:RFIR_reg|q[3]          ; 0                 ; 0       ;
 ;      - FSM:Control|state.stop               ; 0                 ; 0       ;
 ;      - register_8bit:RFIR_reg|q[1]          ; 0                 ; 0       ;
+;      - register_8bit:DIR_reg|q[4]           ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[0]               ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[1]               ; 0                 ; 0       ;
+;      - register_8bit:DIR_reg|q[5]           ; 0                 ; 0       ;
+;      - register_8bit:DIR_reg|q[6]           ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[2]               ; 0                 ; 0       ;
+;      - register_8bit:DIR_reg|q[7]           ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[3]               ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[4]               ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[5]               ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[6]               ; 0                 ; 0       ;
 ;      - register_8bit:PC3|q[7]               ; 0                 ; 0       ;
-;      - register_8bit:DIR_reg|q[6]           ; 0                 ; 0       ;
-;      - register_8bit:DIR_reg|q[7]           ; 0                 ; 0       ;
-;      - register_8bit:DIR_reg|q[4]           ; 0                 ; 0       ;
-;      - register_8bit:DIR_reg|q[5]           ; 0                 ; 0       ;
 ;      - register_8bit:PC2|q[0]               ; 0                 ; 0       ;
 ;      - register_8bit:PC2|q[1]               ; 0                 ; 0       ;
 ;      - register_8bit:PC2|q[2]               ; 0                 ; 0       ;
@@ -2007,31 +2019,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - register_8bit:PC2|q[6]               ; 0                 ; 0       ;
 ;      - register_8bit:PC2|q[7]               ; 0                 ; 0       ;
 ;      - register_8bit:DIR_reg|q[2]~DUPLICATE ; 0                 ; 0       ;
-;      - register_8bit:DIR_reg|q[0]~DUPLICATE ; 0                 ; 0       ;
-;      - FSM:Control|state.reset_s~DUPLICATE  ; 0                 ; 0       ;
+;      - register_8bit:PC4|q[3]~DUPLICATE     ; 0                 ; 0       ;
+;      - register_8bit:DIR_reg|q[4]~DUPLICATE ; 0                 ; 0       ;
+;      - register_8bit:DIR_reg|q[5]~DUPLICATE ; 0                 ; 0       ;
 +---------------------------------------------+-------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                            ;
-+---------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; Name                            ; Location            ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; FSM:Control|ALU1~0              ; LABCELL_X81_Y6_N33  ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; FSM:Control|ALU3~0              ; LABCELL_X80_Y6_N48  ; 9       ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; FSM:Control|MemWrite~0          ; LABCELL_X77_Y6_N30  ; 1       ; Write enable              ; no     ; --                   ; --               ; --                        ;
-; FSM:Control|R1B                 ; LABCELL_X77_Y7_N30  ; 17      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; FSM:Control|stage4.s4_Add_415   ; LABCELL_X77_Y7_N15  ; 2       ; Latch enable              ; no     ; --                   ; --               ; --                        ;
-; FSM:Control|state.b_fail        ; FF_X77_Y7_N8        ; 9       ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; FSM:Control|state.normal_op     ; FF_X79_Y7_N20       ; 79      ; Latch enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; KEY[0]                          ; PIN_AA14            ; 119     ; Async. clear              ; no     ; --                   ; --               ; --                        ;
-; KEY[1]                          ; PIN_AA15            ; 120     ; Clock                     ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; RF:RF_block|Decoder0~0          ; MLABCELL_X82_Y7_N39 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; RF:RF_block|Decoder0~1          ; MLABCELL_X82_Y7_N54 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; RF:RF_block|Decoder0~2          ; MLABCELL_X78_Y7_N6  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; RF:RF_block|Decoder0~3          ; LABCELL_X80_Y7_N33  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; register_8bit:ALUOut_reg|q[0]~0 ; LABCELL_X77_Y6_N51  ; 8       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-+---------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                           ;
++---------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; Name                            ; Location           ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; FSM:Control|ALU1~0              ; MLABCELL_X65_Y3_N9 ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; FSM:Control|ALU3~0              ; LABCELL_X62_Y4_N36 ; 9       ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; FSM:Control|MemWrite~0          ; LABCELL_X66_Y4_N24 ; 1       ; Write enable              ; no     ; --                   ; --               ; --                        ;
+; FSM:Control|R1B                 ; LABCELL_X66_Y4_N6  ; 17      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; FSM:Control|stage4.s4_Add_416   ; LABCELL_X66_Y4_N57 ; 2       ; Latch enable              ; no     ; --                   ; --               ; --                        ;
+; FSM:Control|state.normal_op     ; FF_X65_Y4_N41      ; 94      ; Latch enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; KEY[0]                          ; PIN_AA14           ; 128     ; Async. clear              ; no     ; --                   ; --               ; --                        ;
+; KEY[1]                          ; PIN_AA15           ; 129     ; Clock                     ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; RF:RF_block|Decoder0~0          ; LABCELL_X67_Y5_N9  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; RF:RF_block|Decoder0~1          ; LABCELL_X67_Y5_N12 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; RF:RF_block|Decoder0~2          ; LABCELL_X67_Y5_N18 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; RF:RF_block|Decoder0~3          ; LABCELL_X67_Y5_N51 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; register_8bit:ALUOut_reg|q[6]~0 ; LABCELL_X62_Y4_N33 ; 8       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
++---------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -2039,17 +2051,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+----------+---------+----------------------+------------------+---------------------------+
 ; Name   ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +--------+----------+---------+----------------------+------------------+---------------------------+
-; KEY[1] ; PIN_AA15 ; 120     ; Global Clock         ; GCLK4            ; --                        ;
+; KEY[1] ; PIN_AA15 ; 129     ; Global Clock         ; GCLK4            ; --                        ;
 +--------+----------+---------+----------------------+------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-+-------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+------------------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
-; Name                                                                                                  ; Type ; Mode           ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M10K blocks ; MLAB cells ; MIF              ; Location       ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs         ;
-+-------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+------------------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
-; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; Single Clock ; 256          ; 8            ; 256          ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 2048 ; 256                         ; 8                           ; 256                         ; 8                           ; 2048                ; 1           ; 0          ; ./test1/data.mif ; M10K_X76_Y6_N0 ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Mode ;
-+-------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+------------------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++-------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+----------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
+; Name                                                                                                  ; Type ; Mode           ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M10K blocks ; MLAB cells ; MIF      ; Location       ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs         ;
++-------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+----------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
+; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; Single Clock ; 256          ; 8            ; 256          ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 2048 ; 256                         ; 8                           ; 256                         ; 8                           ; 2048                ; 1           ; 0          ; data.mif ; M10K_X69_Y4_N0 ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Mode ;
++-------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+----------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
 
@@ -2058,14 +2070,14 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +---------------------------------------------+-------------------------+
 ; Routing Resource Type                       ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Block interconnects                         ; 561 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 15 / 13,420 ( < 1 % )   ;
-; C2 interconnects                            ; 216 / 119,108 ( < 1 % ) ;
-; C4 interconnects                            ; 178 / 56,300 ( < 1 % )  ;
+; Block interconnects                         ; 650 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 34 / 13,420 ( < 1 % )   ;
+; C2 interconnects                            ; 283 / 119,108 ( < 1 % ) ;
+; C4 interconnects                            ; 268 / 56,300 ( < 1 % )  ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
-; Direct links                                ; 53 / 289,320 ( < 1 % )  ;
+; Direct links                                ; 48 / 289,320 ( < 1 % )  ;
 ; Global clocks                               ; 1 / 16 ( 6 % )          ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
@@ -2121,13 +2133,13 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
-; Local interconnects                         ; 104 / 84,580 ( < 1 % )  ;
+; Local interconnects                         ; 112 / 84,580 ( < 1 % )  ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
-; R14 interconnects                           ; 97 / 12,676 ( < 1 % )   ;
-; R14/C12 interconnect drivers                ; 108 / 20,720 ( < 1 % )  ;
-; R3 interconnects                            ; 276 / 130,992 ( < 1 % ) ;
-; R6 interconnects                            ; 439 / 266,960 ( < 1 % ) ;
-; Spine clocks                                ; 1 / 360 ( < 1 % )       ;
+; R14 interconnects                           ; 247 / 12,676 ( 2 % )    ;
+; R14/C12 interconnect drivers                ; 271 / 20,720 ( 1 % )    ;
+; R3 interconnects                            ; 456 / 130,992 ( < 1 % ) ;
+; R6 interconnects                            ; 745 / 266,960 ( < 1 % ) ;
+; Spine clocks                                ; 2 / 360 ( < 1 % )       ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
 +---------------------------------------------+-------------------------+
 
@@ -2309,9 +2321,9 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +------------------------------------+----------------------+-------------------+
 ; Source Clock(s)                    ; Destination Clock(s) ; Delay Added in ns ;
 +------------------------------------+----------------------+-------------------+
-; KEY[1],FSM:Control|state.normal_op ; KEY[1]               ; 684.4             ;
-; KEY[1]                             ; KEY[1]               ; 292.9             ;
-; FSM:Control|state.normal_op        ; KEY[1]               ; 263.2             ;
+; KEY[1],FSM:Control|state.normal_op ; KEY[1]               ; 709.8             ;
+; KEY[1]                             ; KEY[1]               ; 426.9             ;
+; FSM:Control|state.normal_op        ; KEY[1]               ; 350.8             ;
 +------------------------------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the TimeQuest Timing Analyzer.
@@ -2322,92 +2334,108 @@ This will disable optimization of problematic paths and expose them for further 
 +---------------------------------+----------------------------------------------------------------------------------------------------------------------------+-------------------+
 ; Source Register                 ; Destination Register                                                                                                       ; Delay Added in ns ;
 +---------------------------------+----------------------------------------------------------------------------------------------------------------------------+-------------------+
-; FSM:Control|state.normal_op     ; register_8bit:WBIR_reg|q[1]                                                                                                ; 10.597            ;
-; FSM:Control|stage4.s4_Store_421 ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ram_block1a2~porta_we_reg       ; 9.773             ;
-; FSM:Control|stage4.s4_Nand_403  ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.650             ;
-; FSM:Control|stage4.s4_Shift_391 ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.532             ;
-; FSM:Control|stage4.s4_Sub_409   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.513             ;
-; FSM:Control|stage4.s4_Ori_397   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.494             ;
-; FSM:Control|stage4.s4_Load_427  ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.311             ;
-; FSM:Control|stage4.s4_noop_385  ; Z                                                                                                                          ; 9.308             ;
-; FSM:Control|stage5.s5_noop_373  ; RF:RF_block|k0[0]                                                                                                          ; 9.150             ;
-; FSM:Control|stage5.s5_most_379  ; RF:RF_block|k0[0]                                                                                                          ; 9.147             ;
-; FSM:Control|MemRead             ; register_8bit:ALUOut_reg|q[4]                                                                                              ; 9.098             ;
-; FSM:Control|stage1.s1_460       ; register_8bit:PC1|q[4]                                                                                                     ; 8.971             ;
-; FSM:Control|R1Sel               ; register_8bit:R1|q[3]                                                                                                      ; 8.864             ;
-; FSM:Control|R1B                 ; register_8bit:R2|q[7]                                                                                                      ; 8.800             ;
-; register_8bit:R1|q[0]           ; Z                                                                                                                          ; 6.867             ;
-; register_8bit:ALUOut_reg|q[0]   ; Z                                                                                                                          ; 6.867             ;
-; register_8bit:ALUOut_reg|q[7]   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.836             ;
-; register_8bit:R1|q[7]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.836             ;
-; register_8bit:XIR_reg|q[4]      ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.789             ;
-; register_8bit:R2|q[1]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.789             ;
-; register_8bit:R1|q[6]           ; register_8bit:ALUOut_reg|q[6]                                                                                              ; 6.779             ;
-; register_8bit:ALUOut_reg|q[6]   ; register_8bit:ALUOut_reg|q[6]                                                                                              ; 6.779             ;
-; register_8bit:R2|q[0]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.759             ;
-; register_8bit:XIR_reg|q[3]      ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.759             ;
-; register_8bit:ALUOut_reg|q[5]   ; register_8bit:ALUOut_reg|q[6]                                                                                              ; 6.721             ;
-; register_8bit:R1|q[5]           ; register_8bit:ALUOut_reg|q[6]                                                                                              ; 6.721             ;
-; register_8bit:XIR_reg|q[5]      ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.675             ;
-; register_8bit:R2|q[2]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.675             ;
-; register_8bit:ALUOut_reg|q[3]   ; Z                                                                                                                          ; 6.628             ;
-; register_8bit:R1|q[3]           ; Z                                                                                                                          ; 6.628             ;
-; register_8bit:ALUOut_reg|q[4]   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.402             ;
-; register_8bit:R1|q[4]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.402             ;
-; register_8bit:R1|q[2]           ; Z                                                                                                                          ; 6.322             ;
-; register_8bit:ALUOut_reg|q[2]   ; Z                                                                                                                          ; 6.322             ;
-; register_8bit:R1|q[1]           ; Z                                                                                                                          ; 6.266             ;
-; register_8bit:ALUOut_reg|q[1]   ; Z                                                                                                                          ; 6.266             ;
-; register_8bit:R2|q[3]           ; Z                                                                                                                          ; 6.258             ;
-; register_8bit:XIR_reg|q[6]      ; Z                                                                                                                          ; 6.258             ;
-; Z                               ; FSM:Control|state.stop                                                                                                     ; 5.962             ;
-; register_8bit:XIR_reg|q[1]      ; FSM:Control|state.stop                                                                                                     ; 5.962             ;
-; register_8bit:XIR_reg|q[0]      ; FSM:Control|state.stop                                                                                                     ; 5.962             ;
-; register_8bit:XIR_reg|q[2]      ; FSM:Control|state.stop                                                                                                     ; 5.962             ;
-; N                               ; FSM:Control|state.stop                                                                                                     ; 5.962             ;
-; register_8bit:R2|q[4]           ; register_8bit:ALUOut_reg|q[6]                                                                                              ; 5.895             ;
-; register_8bit:XIR_reg|q[7]      ; register_8bit:ALUOut_reg|q[6]                                                                                              ; 5.895             ;
-; register_8bit:RFIR_reg|q[3]     ; register_8bit:XIR_reg|q[3]                                                                                                 ; 4.881             ;
-; register_8bit:WBIR_reg|q[7]     ; RF:RF_block|k0[0]                                                                                                          ; 4.868             ;
-; register_8bit:WBIR_reg|q[6]     ; RF:RF_block|k0[0]                                                                                                          ; 4.868             ;
-; register_8bit:DIR_reg|q[1]      ; register_8bit:RFIR_reg|q[1]                                                                                                ; 4.847             ;
-; FSM:Control|state.reset_s       ; register_8bit:PC1|q[4]                                                                                                     ; 4.569             ;
-; FSM:Control|state.stop          ; register_8bit:PC1|q[4]                                                                                                     ; 4.569             ;
-; register_8bit:RFIR_reg|q[7]     ; register_8bit:R1|q[3]                                                                                                      ; 4.469             ;
-; register_8bit:RFIR_reg|q[6]     ; register_8bit:R1|q[0]                                                                                                      ; 4.434             ;
-; register_8bit:R2|q[6]           ; Z                                                                                                                          ; 4.246             ;
-; register_8bit:R2|q[7]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 3.985             ;
-; register_8bit:R2|q[5]           ; register_8bit:ALUOut_reg|q[5]                                                                                              ; 3.893             ;
-; register_8bit:DIR_reg|q[3]      ; FSM:Control|state.normal_op                                                                                                ; 2.630             ;
-; register_8bit:DIR_reg|q[0]      ; FSM:Control|state.normal_op                                                                                                ; 2.630             ;
-; register_8bit:DIR_reg|q[2]      ; FSM:Control|state.normal_op                                                                                                ; 2.630             ;
-; FSM:Control|state.b_fail        ; FSM:Control|state.normal_op                                                                                                ; 2.630             ;
-; FSM:Control|stage3.s3_noop_433  ; FSM:Control|R1B                                                                                                            ; 0.962             ;
-; FSM:Control|stage3.s3_Ori_439   ; FSM:Control|R1Sel                                                                                                          ; 0.947             ;
-; RF:RF_block|k3[1]               ; register_8bit:R1|q[1]                                                                                                      ; 0.267             ;
-; RF:RF_block|k3[3]               ; register_8bit:R2|q[3]                                                                                                      ; 0.266             ;
-; RF:RF_block|k1[3]               ; register_8bit:R2|q[3]                                                                                                      ; 0.202             ;
-; RF:RF_block|k1[1]               ; register_8bit:R1|q[1]                                                                                                      ; 0.202             ;
-; RF:RF_block|k1[2]               ; register_8bit:R1|q[2]                                                                                                      ; 0.200             ;
-; RF:RF_block|k1[0]               ; register_8bit:R1|q[0]                                                                                                      ; 0.200             ;
-; RF:RF_block|k1[6]               ; register_8bit:R1|q[6]                                                                                                      ; 0.200             ;
-; register_8bit:RFIR_reg|q[1]     ; register_8bit:XIR_reg|q[1]                                                                                                 ; 0.179             ;
-; register_8bit:PC1|q[5]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ram_block1a7~portb_address_reg0 ; 0.102             ;
-; register_8bit:PC1|q[1]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ram_block1a6~portb_address_reg0 ; 0.081             ;
-; register_8bit:PC1|q[2]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ram_block1a1~portb_address_reg0 ; 0.081             ;
-; register_8bit:PC2|q[2]          ; register_8bit:PC3|q[2]                                                                                                     ; 0.076             ;
-; register_8bit:PC2|q[3]          ; register_8bit:PC3|q[3]                                                                                                     ; 0.076             ;
-; register_8bit:PC2|q[5]          ; register_8bit:PC3|q[5]                                                                                                     ; 0.076             ;
-; register_8bit:PC2|q[6]          ; register_8bit:PC3|q[6]                                                                                                     ; 0.076             ;
-; register_8bit:PC2|q[0]          ; register_8bit:PC3|q[0]                                                                                                     ; 0.076             ;
-; register_8bit:PC2|q[7]          ; register_8bit:PC3|q[7]                                                                                                     ; 0.076             ;
-; register_8bit:PC1|q[6]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ram_block1a4~portb_address_reg0 ; 0.071             ;
-; register_8bit:PC1|q[7]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ram_block1a0~portb_address_reg0 ; 0.071             ;
-; register_8bit:PC1|q[3]          ; register_8bit:PC2|q[3]                                                                                                     ; 0.058             ;
-; register_8bit:PC1|q[0]          ; register_8bit:PC2|q[0]                                                                                                     ; 0.056             ;
-; register_8bit:PC1|q[4]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_9jf2:auto_generated|ram_block1a1~portb_address_reg0 ; 0.050             ;
+; FSM:Control|state.normal_op     ; Z                                                                                                                          ; 11.485            ;
+; FSM:Control|stage4.s4_Store_422 ; Z                                                                                                                          ; 10.467            ;
+; FSM:Control|stage4.s4_noop_386  ; Z                                                                                                                          ; 10.408            ;
+; FSM:Control|stage1.s1_461       ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a1~portb_address_reg0 ; 10.282            ;
+; FSM:Control|stage4.s4_Load_428  ; Z                                                                                                                          ; 10.271            ;
+; FSM:Control|stage4.s4_Nand_404  ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.651             ;
+; FSM:Control|stage4.s4_Sub_410   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.602             ;
+; FSM:Control|MemRead             ; register_8bit:ALUOut_reg|q[1]                                                                                              ; 9.519             ;
+; FSM:Control|stage4.s4_Ori_398   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.515             ;
+; FSM:Control|stage4.s4_Shift_392 ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 9.449             ;
+; FSM:Control|R1Sel               ; register_8bit:R1|q[0]                                                                                                      ; 8.672             ;
+; FSM:Control|stage5.s5_most_380  ; RF:RF_block|k0[4]                                                                                                          ; 8.658             ;
+; FSM:Control|stage5.s5_noop_374  ; RF:RF_block|k0[4]                                                                                                          ; 8.653             ;
+; FSM:Control|R1B                 ; register_8bit:R1|q[4]                                                                                                      ; 8.546             ;
+; register_8bit:R1|q[2]           ; Z                                                                                                                          ; 7.701             ;
+; register_8bit:ALUOut_reg|q[2]   ; Z                                                                                                                          ; 7.701             ;
+; register_8bit:ALUOut_reg|q[7]   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 7.119             ;
+; register_8bit:R1|q[7]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 7.119             ;
+; register_8bit:R1|q[1]           ; Z                                                                                                                          ; 6.898             ;
+; register_8bit:ALUOut_reg|q[1]   ; Z                                                                                                                          ; 6.898             ;
+; register_8bit:ALUOut_reg|q[4]   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.795             ;
+; register_8bit:R1|q[4]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.795             ;
+; register_8bit:R1|q[6]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.755             ;
+; register_8bit:ALUOut_reg|q[6]   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.755             ;
+; register_8bit:ALUOut_reg|q[5]   ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.719             ;
+; register_8bit:R1|q[5]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.719             ;
+; register_8bit:R1|q[0]           ; Z                                                                                                                          ; 6.672             ;
+; register_8bit:ALUOut_reg|q[0]   ; Z                                                                                                                          ; 6.672             ;
+; register_8bit:XIR_reg|q[4]      ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.483             ;
+; register_8bit:R2|q[1]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.483             ;
+; register_8bit:R2|q[0]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.382             ;
+; register_8bit:XIR_reg|q[3]      ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.382             ;
+; register_8bit:XIR_reg|q[5]      ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.363             ;
+; register_8bit:R2|q[2]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 6.363             ;
+; register_8bit:R2|q[3]           ; Z                                                                                                                          ; 6.191             ;
+; register_8bit:XIR_reg|q[6]      ; Z                                                                                                                          ; 6.191             ;
+; register_8bit:R2|q[4]           ; Z                                                                                                                          ; 6.173             ;
+; register_8bit:XIR_reg|q[7]      ; Z                                                                                                                          ; 6.173             ;
+; register_8bit:ALUOut_reg|q[3]   ; Z                                                                                                                          ; 6.008             ;
+; register_8bit:R1|q[3]           ; Z                                                                                                                          ; 6.008             ;
+; Z                               ; FSM:Control|state.stop                                                                                                     ; 5.423             ;
+; register_8bit:XIR_reg|q[1]      ; FSM:Control|state.stop                                                                                                     ; 5.423             ;
+; register_8bit:XIR_reg|q[0]      ; FSM:Control|state.stop                                                                                                     ; 5.423             ;
+; register_8bit:XIR_reg|q[2]      ; FSM:Control|state.stop                                                                                                     ; 5.423             ;
+; N                               ; FSM:Control|state.stop                                                                                                     ; 5.423             ;
+; register_8bit:PC4|q[1]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a6~portb_address_reg0 ; 5.393             ;
+; register_8bit:PC1|q[1]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a6~portb_address_reg0 ; 5.393             ;
+; register_8bit:DIR_reg|q[5]      ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a6~portb_address_reg0 ; 5.393             ;
+; register_8bit:DIR_reg|q[4]      ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a6~portb_address_reg0 ; 5.393             ;
+; register_8bit:PC1|q[0]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a6~portb_address_reg0 ; 5.393             ;
+; FSM:Control|state.b_fail        ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a6~portb_address_reg0 ; 5.393             ;
+; register_8bit:RFIR_reg|q[3]     ; register_8bit:XIR_reg|q[3]                                                                                                 ; 4.946             ;
+; register_8bit:PC4|q[0]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a6~portb_address_reg0 ; 4.592             ;
+; register_8bit:DIR_reg|q[1]      ; register_8bit:RFIR_reg|q[1]                                                                                                ; 4.584             ;
+; register_8bit:WBIR_reg|q[7]     ; RF:RF_block|k0[4]                                                                                                          ; 4.522             ;
+; register_8bit:WBIR_reg|q[6]     ; RF:RF_block|k0[4]                                                                                                          ; 4.522             ;
+; register_8bit:RFIR_reg|q[6]     ; register_8bit:R1|q[0]                                                                                                      ; 4.339             ;
+; register_8bit:RFIR_reg|q[7]     ; register_8bit:R1|q[0]                                                                                                      ; 4.315             ;
+; register_8bit:DIR_reg|q[6]      ; register_8bit:PC1|q[2]                                                                                                     ; 4.281             ;
+; register_8bit:PC1|q[2]          ; register_8bit:PC1|q[2]                                                                                                     ; 4.281             ;
+; register_8bit:PC4|q[2]          ; register_8bit:PC1|q[2]                                                                                                     ; 4.281             ;
+; register_8bit:PC1|q[3]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a1~portb_address_reg0 ; 4.220             ;
+; register_8bit:PC4|q[3]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a1~portb_address_reg0 ; 4.220             ;
+; register_8bit:DIR_reg|q[7]      ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a1~portb_address_reg0 ; 4.220             ;
+; register_8bit:PC1|q[4]          ; register_8bit:PC1|q[6]                                                                                                     ; 4.216             ;
+; register_8bit:PC1|q[5]          ; register_8bit:PC1|q[6]                                                                                                     ; 4.216             ;
+; register_8bit:PC1|q[6]          ; register_8bit:PC1|q[6]                                                                                                     ; 4.216             ;
+; register_8bit:PC4|q[6]          ; register_8bit:PC1|q[6]                                                                                                     ; 4.216             ;
+; register_8bit:R2|q[5]           ; Z                                                                                                                          ; 4.212             ;
+; register_8bit:R2|q[6]           ; Z                                                                                                                          ; 4.057             ;
+; register_8bit:PC4|q[5]          ; register_8bit:PC1|q[5]                                                                                                     ; 3.918             ;
+; register_8bit:PC4|q[4]          ; register_8bit:PC1|q[4]                                                                                                     ; 3.906             ;
+; register_8bit:PC1|q[7]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a0~portb_address_reg0 ; 3.877             ;
+; register_8bit:PC4|q[7]          ; memory:DualMem|DualMem:inst|altsyncram:altsyncram_component|altsyncram_cve2:auto_generated|ram_block1a0~portb_address_reg0 ; 3.877             ;
+; register_8bit:R2|q[7]           ; register_8bit:ALUOut_reg|q[7]                                                                                              ; 3.762             ;
+; FSM:Control|state.reset_s       ; FSM:Control|state.normal_op                                                                                                ; 2.372             ;
+; register_8bit:DIR_reg|q[3]      ; FSM:Control|state.normal_op                                                                                                ; 2.372             ;
+; register_8bit:DIR_reg|q[0]      ; FSM:Control|state.normal_op                                                                                                ; 2.372             ;
+; register_8bit:DIR_reg|q[2]      ; FSM:Control|state.normal_op                                                                                                ; 2.372             ;
+; FSM:Control|stage3.s3_noop_434  ; FSM:Control|R1B                                                                                                            ; 1.225             ;
+; FSM:Control|stage3.s3_Ori_440   ; FSM:Control|R1Sel                                                                                                          ; 1.191             ;
+; RF:RF_block|k0[7]               ; register_8bit:R1|q[7]                                                                                                      ; 0.299             ;
+; RF:RF_block|k0[2]               ; register_8bit:R1|q[2]                                                                                                      ; 0.299             ;
+; RF:RF_block|k0[0]               ; register_8bit:R1|q[0]                                                                                                      ; 0.299             ;
+; RF:RF_block|k0[3]               ; register_8bit:R2|q[3]                                                                                                      ; 0.297             ;
+; RF:RF_block|k0[5]               ; register_8bit:R2|q[5]                                                                                                      ; 0.297             ;
+; RF:RF_block|k0[1]               ; register_8bit:R1|q[1]                                                                                                      ; 0.297             ;
+; RF:RF_block|k0[4]               ; register_8bit:R2|q[4]                                                                                                      ; 0.297             ;
+; RF:RF_block|k0[6]               ; register_8bit:R1|q[6]                                                                                                      ; 0.292             ;
+; register_8bit:PC3|q[0]          ; register_8bit:PC4|q[0]                                                                                                     ; 0.280             ;
+; register_8bit:PC3|q[6]          ; register_8bit:PC4|q[6]                                                                                                     ; 0.274             ;
+; RF:RF_block|k1[2]               ; register_8bit:R1|q[2]                                                                                                      ; 0.268             ;
+; RF:RF_block|k1[0]               ; register_8bit:R1|q[0]                                                                                                      ; 0.268             ;
+; register_8bit:RFIR_reg|q[1]     ; register_8bit:XIR_reg|q[1]                                                                                                 ; 0.267             ;
+; RF:RF_block|k1[3]               ; register_8bit:R2|q[3]                                                                                                      ; 0.266             ;
+; RF:RF_block|k1[1]               ; register_8bit:R1|q[1]                                                                                                      ; 0.266             ;
+; register_8bit:PC2|q[6]          ; register_8bit:PC3|q[6]                                                                                                     ; 0.247             ;
+; register_8bit:PC2|q[0]          ; register_8bit:PC3|q[0]                                                                                                     ; 0.242             ;
+; register_8bit:PC2|q[3]          ; register_8bit:PC3|q[3]                                                                                                     ; 0.202             ;
+; RF:RF_block|k2[0]               ; register_8bit:R1|q[0]                                                                                                      ; 0.162             ;
 +---------------------------------+----------------------------------------------------------------------------------------------------------------------------+-------------------+
-Note: This table only shows the top 84 path(s) that have the largest delay added for hold.
+Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -2425,7 +2453,7 @@ Info (176045): Design uses memory blocks. Violating setup or hold times of memor
 Critical Warning (169085): No exact pin location assignment(s) for 8 pins of 67 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
 Info (184020): Starting Fitter periphery placement operations
 Info (11191): Automatically promoted 1 clock (1 global)
-    Info (11162): KEY[1]~inputCLKENA0 with 124 fanout uses global clock CLKCTRL_G6
+    Info (11162): KEY[1]~inputCLKENA0 with 132 fanout uses global clock CLKCTRL_G6
         Info (12525): This signal is driven by core routing -- it may be moved during placement to reduce routing delays
 Warning (16406): 1 global input pin(s) will use non-dedicated clock routing
     Warning (16407): Source REFCLK I/O is not placed onto a dedicated REFCLK input pin for global clock driver KEY[1]~inputCLKENA0, placed at CLKCTRL_G6
@@ -2649,12 +2677,12 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 15% of the available device resources in the region that extends from location X78_Y0 to location X89_Y10
+    Info (170196): Router estimated peak interconnect usage is 15% of the available device resources in the region that extends from location X56_Y0 to location X66_Y10
 Info (188005): Design requires adding a large amount of routing delay for some signals to meet hold time requirements, and there is an excessive demand for the available routing resources. The Fitter is reducing the routing delays of some signals to help the routing algorithm converge, but doing so may cause hold time failures. For more information, refer to the "Estimated Delay Added for Hold Timing" section in the Fitter report.
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:41
-Info (11888): Total time spent on timing analysis during the Fitter is 1.02 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:01:12
+Info (11888): Total time spent on timing analysis during the Fitter is 1.25 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2663,10 +2691,10 @@ Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:05
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/BAly/Documents/EngsciECE3/ComputerOrganization/Project/ECE352_Project_2017/processor_v3_verilog/multicycle.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 209 warnings
-    Info: Peak virtual memory: 2541 megabytes
-    Info: Processing ended: Sun Nov 26 23:45:12 2017
-    Info: Elapsed time: 00:01:24
-    Info: Total CPU time (on all processors): 00:02:05
+    Info: Peak virtual memory: 2545 megabytes
+    Info: Processing ended: Tue Nov 28 02:11:34 2017
+    Info: Elapsed time: 00:01:56
+    Info: Total CPU time (on all processors): 00:02:42
 
 
 +----------------------------+

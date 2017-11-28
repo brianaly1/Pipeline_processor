@@ -20,23 +20,23 @@
 module FSM(
 reset, clock, N, Z, Dinstr, RFinstr, Xinstr, WBinstr, PCwrite, Countwrite, 
 AddrSel, MemRead, MemWrite, S1Load, S2Load, R1Sel, RegWsel, RFWrite, R1B,
-R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOPSel3,NOOPSel4 
+R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOPSel3,NOOPSel4,IRMEMwire,Bsel 
 //, state
 );
-	input		[3:0] Dinstr,RFinstr,Xinstr, WBinstr;
+	input		[3:0] Dinstr,RFinstr,Xinstr, WBinstr,IRMEMwire;
 	input				N, Z;
 	input				reset, clock;
 	output			PCwrite, Countwrite, MemRead, MemWrite, NOOPSel1, S1Load, NOOPSel2, S2Load; 
-	output			R1Sel, RegWsel, RFWrite, R1B, R2B, NOOPSel3, S3Load, ALU1, FlagWrite, ALU3, NOOPSel4, WBIRLoad;
-	output	[1:0] AddrSel, ALU2;
+	output			R1Sel, RegWsel, RFWrite, R1B, R2B, NOOPSel3, S3Load, ALU1, FlagWrite, ALU3, NOOPSel4, WBIRLoad, AddrSel;
+	output	[1:0] ALU2,Bsel;
 	output	[2:0] ALUop;
 	//output	[3:0] state;
 	
 	reg 		[4:0]	stage1,stage2,stage3,stage4,stage5;
 	reg		[2:0] state;
 	reg				PCwrite, Countwrite, MemRead, MemWrite, NOOPSel1, S1Load, NOOPSel2, S2Load;
-	reg				R1Sel, RegWsel, RFWrite, R1B, R2B, NOOPSel3, S3Load, ALU1, FlagWrite, ALU3, NOOPSel4, WBIRLoad;
-	reg		[1:0] AddrSel, ALU2;
+	reg				R1Sel, RegWsel, RFWrite, R1B, R2B, NOOPSel3, S3Load, ALU1, FlagWrite, ALU3, NOOPSel4, WBIRLoad, AddrSel;
+	reg		[1:0] ALU2,Bsel;
 	reg		[2:0] ALUop;
 	
 	
@@ -58,14 +58,15 @@ R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOP
 			case(state)
 				reset_s:	state = normal_op;				
 			
-				normal_op:	begin		
+				normal_op:	begin
 									/***************STATE LOGIc**************/
 									if(Xinstr == 4'b1101 & N) state = b_fail;
 									else if(Xinstr == 4'b0101 & !Z) state = b_fail;
 									else if(Xinstr == 4'b1001 & Z) state = b_fail;
 									else if(Dinstr == 4'b0001)	state = stop;
-									else state = normal_op; //will add more cases based on Dinstr for data hazard forwarding later		
+									else state = normal_op; //will add more cases based on Dinstr for data hazard forwarding later	
 								end
+								
 				b_fail:		state = normal_op;
 								
 				stop:			state = stop;
@@ -76,8 +77,9 @@ R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOP
 	always @(*)
 	begin
 		case(state)						
-			normal_op:	begin		
-								if(Dinstr ==  4'b1101 | Dinstr == 4'b0101 | Dinstr == 4'b1001)
+			normal_op:	begin	
+								
+								if(Dinstr ==  4'b1101 | Dinstr  == 4'b0101 | Dinstr  == 4'b1001)
 									stage1 = s1b;
 								else
 									stage1 = s1;
@@ -118,9 +120,10 @@ R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOP
 					Countwrite = 1;
 				/********stage 1 signals********/
 					PCwrite = 1;
-					AddrSel = 2'b10;
+					AddrSel = 1;
 					S1Load = 1;
 					NOOPSel1 = 0;
+					Bsel = 2'b00;
 				
 				/********stage 2 flush signals********/
 					S2Load = 1;
@@ -162,13 +165,15 @@ R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOP
 					case (stage1)
 						s1:	begin
 									PCwrite = 1;
-									AddrSel = 2'b10;
+									AddrSel = 1;
+									Bsel = 2'b00;
 									S1Load = 1;
 								end
 								
 						s1b:	begin
 									PCwrite = 1;
-									AddrSel = 2'b00;
+									AddrSel = 1;
+									Bsel = 2'b01;
 									S1Load = 1;
 								end
 					endcase
@@ -312,9 +317,10 @@ R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOP
 					Countwrite = 1;
 				/********stage 1 signals********/
 					PCwrite = 1;
-					AddrSel = 2'b01;
+					AddrSel = 1;
 					S1Load = 1;
 					NOOPSel1 = 0;
+					Bsel = 2'b10;
 				
 				/********stage 2 flush signals********/
 					S2Load = 1;
@@ -349,11 +355,11 @@ R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOP
 				begin
 					Countwrite = 0;
 				/********stage 1 flush signals********/
-					PCwrite = 1;
-					AddrSel = 2'b10;
+					PCwrite = 0;
+					AddrSel = 1;
 					S1Load = 1;
 					NOOPSel1 = 1;
-				
+					Bsel = 2'b00;
 				/********stage 2 flush signals********/
 					S2Load = 1;
 					NOOPSel2 = 1;
@@ -389,9 +395,10 @@ R2B, S3Load, FlagWrite, ALU3, WBIRLoad, ALU1, ALU2, ALUop,NOOPSel1,NOOPSel2,NOOP
 					Countwrite = 1;
 				/********stage 1 signals********/
 					PCwrite = 1;
-					AddrSel = 2'b10;
+					AddrSel = 1;
 					S1Load = 1;
 					NOOPSel1 = 0;
+					Bsel = 2'b00;
 				/********stage 2 flush signals********/
 					S2Load = 1;
 					NOOPSel2 = 1;

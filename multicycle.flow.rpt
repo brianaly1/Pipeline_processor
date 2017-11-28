@@ -1,5 +1,5 @@
 Flow report for multicycle
-Sun Nov 26 23:45:31 2017
+Tue Nov 28 02:11:55 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Nov 26 23:45:31 2017       ;
+; Flow Status                     ; Successful - Tue Nov 28 02:11:55 2017       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; multicycle                                  ;
 ; Top-level Entity Name           ; multicycle                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 147 / 32,070 ( < 1 % )                      ;
-; Total registers                 ; 119                                         ;
+; Logic utilization (in ALMs)     ; 160 / 32,070 ( < 1 % )                      ;
+; Total registers                 ; 128                                         ;
 ; Total pins                      ; 67 / 457 ( 15 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048 / 4,065,280 ( < 1 % )                 ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/26/2017 23:43:36 ;
+; Start date & time ; 11/28/2017 02:09:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; multicycle          ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 18431769958344.151175781618764         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 18431769958344.151185296508692         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
@@ -97,12 +97,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 728 MB              ; 00:00:25                           ;
-; Fitter                    ; 00:01:23     ; 1.0                     ; 2541 MB             ; 00:02:04                           ;
-; Assembler                 ; 00:00:07     ; 1.0                     ; 714 MB              ; 00:00:07                           ;
-; TimeQuest Timing Analyzer ; 00:00:08     ; 1.2                     ; 1051 MB             ; 00:00:09                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 632 MB              ; 00:00:01                           ;
-; Total                     ; 00:01:51     ; --                      ; --                  ; 00:02:46                           ;
+; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 745 MB              ; 00:00:28                           ;
+; Fitter                    ; 00:01:56     ; 1.0                     ; 2545 MB             ; 00:02:42                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 722 MB              ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.2                     ; 1056 MB             ; 00:00:09                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 635 MB              ; 00:00:02                           ;
+; Total                     ; 00:02:24     ; --                      ; --                  ; 00:03:28                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

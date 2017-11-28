@@ -42,14 +42,14 @@ wire	clock, reset;
 wire	PCWrite, MemRead, MemWrite, S1Load, S2Load, R1Sel, RegWsel, RFWrite, R1B, R2B, Countwrite; 
 wire	S3Load, ALU1, FlagWrite, ALU3, WBIRLoad, NOOPSel1, NOOPSel2, NOOPSel3, NOOPSel4;   
 wire	[15:0] CountOut,NextCountwire, NextPCwire, CountAdder1wire, CountAdder2wire, PCAdder1wire, PCAdder2wire, NOOPMuxWire1, NOOPMuxWire2, NOOPMuxWire3, NOOPMuxWire4 ;
-wire	[7:0] R2wire, PCwire, PC1wire, PC2wire, PC3wire, R1wire, RFout1wire, RFout2wire, Data1Wire, Data2Wire;
+wire	[7:0] R2wire, PCwire, PC1wire, PC2wire, PC3wire, R1wire, RFout1wire, RFout2wire, Data1Wire, Data2Wire, PC4wire;
 wire	[7:0] ALU1wire, ALU2wire, ALU3wire, ALUwire, ALUOut, MEMwire, IRMEMwire;
-wire	[7:0] DIR, RFIR, XIR, WBIR, SE4wire, ZE5wire, ZE3wire, AddrWire;
+wire	[7:0] DIR, RFIR, XIR, WBIR, SE4wire, ZE5wire, ZE3wire, AddrWire,AddrWire2;
 wire	[7:0] reg0, reg1, reg2, reg3;
 wire	[7:0] constant, NOOPWire, BranchedPCWire;
 wire	[2:0] ALUOp;
-wire	[1:0] R1_in, RegWin, AddrSel, ALU2;
-wire	Nwire, Zwire;
+wire	[1:0] R1_in, RegWin, ALU2,BSel;
+wire	Nwire, Zwire, AddrSel;
 reg		N, Z;
 // ------------------------ Input Assignment ------------------------ //
 assign	clock = KEY[1];
@@ -67,7 +67,7 @@ HEXs	HEX_display(
 /*
 // ------------------- DE1 compatible HEX display ------------------- //
 chooseHEXs	HEX_display(
-	.in0(reg0),.in1(reg1),.in2(reg2),.in3(reg3),
+	.in0(reg0),.in1(reg1),.in2(reg2),.in3(reg3),f
 	.out0(HEX0),.out1(HEX1),.select(SW[1:0])
 );
 // turn other HEX display off
@@ -84,15 +84,20 @@ FSM		Control(
 	.reset(reset),.clock(clock),.N(N),.Z(Z),.Dinstr(DIR[3:0]),.RFinstr(RFIR[3:0]),.Xinstr(XIR[3:0]),.WBinstr(WBIR[3:0]),
 	.PCwrite(PCWrite),.Countwrite(Countwrite),.AddrSel(AddrSel),.MemRead(MemRead),.MemWrite(MemWrite),.NOOPSel1(NOOPSel1),.S1Load(S1Load),.NOOPSel2(NOOPSel2),.S2Load(S2Load),
 	.R1Sel(R1Sel),.RegWsel(RegWsel),.RFWrite(RFWrite),.R1B(R1B),.R2B(R2B),.NOOPSel3(NOOPSel3),.S3Load(S3Load),.FlagWrite(FlagWrite),.ALU3(ALU3),.NOOPSel4(NOOPSel4),.WBIRLoad(WBIRLoad),
-	.ALU1(ALU1),.ALU2(ALU2),.ALUop(ALUOp)
+	.ALU1(ALU1),.ALU2(ALU2),.ALUop(ALUOp),.IRMEMwire(IRMEMwire[3:0]),.Bsel(BSel)
 );
 
 /***********************STAGE 1 BEGIN*************************/
 
 /*PCSel*/
-mux3to1_8bit 		AddrSel_mux(
-	.data0x(BranchedPCWire),.data1x(PC3wire),.data2x(NextPCwire),
+mux2to1_8bit 		AddrSel_mux(
+	.data0x(PC3wire),.data1x(NextPCwire),
 	.sel(AddrSel),.result(AddrWire)
+);
+
+mux3to1_8bit 		BranchSel_mux(
+	.data0x(PCwire),.data1x(BranchedPCWire),.data2x(PC4wire),
+	.sel(BSel),.result(AddrWire2)
 );
 
 /*PC Reg*/
@@ -109,7 +114,7 @@ Adder		PCAdder(
 /* Dual memory */
 memory	DualMem(
 	.MemRead(MemRead),.wren(MemWrite),.clock(clock),
-	.address(R2wire),.data(R1wire),.q(MEMwire),.address_pc(PCwire),.q_pc(IRMEMwire) 
+	.address(R2wire),.data(R1wire),.q(MEMwire),.address_pc(AddrWire2),.q_pc(IRMEMwire) 
 );
 
 /* No-Op Mux 1 */ ///////////////////////Hardware Mod
@@ -154,7 +159,7 @@ register_8bit	PC2(
 );
 
 /* Branch Adder */
-Adder		BranchAdder(
+Adder8b		BranchAdder(
 	.in1(SE4wire),.in2(PC1wire),.out(BranchedPCWire)
 );
 /***********************STAGE 2 END*************************/
@@ -278,6 +283,13 @@ register_8bit	ALUOut_reg(
 	.data(ALU3wire),.q(ALUOut)
 );
 
+/*PC4*/
+register_8bit	PC4(
+	.clock(clock),.aclr(reset),.enable(WBIRLoad),
+	.data(PC3wire),.q(PC4wire)
+);
+
+
 /***********************STAGE 4 END*************************/
 
 /* counter Adder */
@@ -314,7 +326,7 @@ assign	constant = 1;
 //-----------------------Assign Count Adder wires-------------------- //
 assign CountAdder1wire = CountOut ;
 assign CountAdder2wire = 1;
-assign PCAdder1wire = PCwire;
+assign PCAdder1wire = AddrWire2;
 assign PCAdder2wire = 1;
 assign NOOPWire = 8'b00001010;
 
