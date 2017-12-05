@@ -39,17 +39,17 @@ output reg [17:0] LEDR;
 
 // ------------------------- Registers/Wires ------------------------ //
 wire	clock, reset;
-wire	PCWrite, MemRead, MemWrite, S1Load, S2Load, R1Sel, RegWsel, RFWrite, R1B, R2B, Countwrite; 
+wire	PCWrite, MemRead, MemWrite, S1Load, S2Load, R1Sel, RegWsel, RFWrite, R1B, R2B, Countwrite,M1,M2; 
 wire	S3Load, ALU1, FlagWrite, ALU3, WBIRLoad, NOOPSel1, NOOPSel2, NOOPSel3, NOOPSel4;   
 wire	[15:0] CountOut,NextCountwire, NextPCwire, CountAdder1wire, CountAdder2wire, PCAdder1wire, PCAdder2wire, NOOPMuxWire1, NOOPMuxWire2, NOOPMuxWire3, NOOPMuxWire4 ;
-wire	[7:0] R2wire, PCwire, PC1wire, PC2wire, PC3wire, R1wire, RFout1wire, RFout2wire, Data1Wire, Data2Wire, PC4wire;
+wire	[7:0] R2wire, PCwire, PC1wire, PC2wire, PC3wire, R1wire, RFout1wire, RFout2wire, Data1Wire, Data2Wire, PC4wire,memhaz1out,memhaz2out;
 wire	[7:0] ALU1wire, ALU2wire, ALU3wire, ALUwire, ALUOut, MEMwire, IRMEMwire;
-wire	[7:0] DIR, RFIR, XIR, WBIR, SE4wire, ZE5wire, ZE3wire, AddrWire,AddrWire2;
+wire	[7:0] DIR, RFIR, XIR, WBIR, SE4wire, ZE5wire, ZE3wire, AddrWire2;
 wire	[7:0] reg0, reg1, reg2, reg3;
 wire	[7:0] constant, NOOPWire, BranchedPCWire;
 wire	[2:0] ALUOp;
 wire	[1:0] R1_in, RegWin, ALU2,BSel;
-wire	Nwire, Zwire, AddrSel;
+wire	Nwire, Zwire;
 reg		N, Z;
 // ------------------------ Input Assignment ------------------------ //
 assign	clock = KEY[1];
@@ -58,7 +58,7 @@ assign	reset =  ~KEY[0]; // KEY is active high
 
 // ------------------- DE2 compatible HEX display ------------------- //
 HEXs	HEX_display(
-	.in0(reg0),.in1(reg1),.in2(reg2),.in3(reg3),.in4(NextCountwire),.selH({SW[2],SW[0]}),
+	.in0(reg0),.in1(reg1),.in2(reg2),.in3(reg3),.in4(count),.selH({SW[2],SW[0]}),
 	.out0(HEX0),.out1(HEX1),.out2(HEX2),.out3(HEX3),
 	.out4(HEX4),.out5(HEX5)
 );
@@ -81,19 +81,14 @@ assign HEX7 = 7'b1111111;
 */
 
 FSM		Control(
-	.reset(reset),.clock(clock),.N(N),.Z(Z),.Dinstr(DIR[3:0]),.RFinstr(RFIR[3:0]),.Xinstr(XIR[3:0]),.WBinstr(WBIR[3:0]),
-	.PCwrite(PCWrite),.Countwrite(Countwrite),.AddrSel(AddrSel),.MemRead(MemRead),.MemWrite(MemWrite),.NOOPSel1(NOOPSel1),.S1Load(S1Load),.NOOPSel2(NOOPSel2),.S2Load(S2Load),
+	.reset(reset),.clock(clock),.N(N),.Z(Z),.Dinstr(DIR[7:0]),.RFinstr(RFIR[7:0]),.Xinstr(XIR[7:0]),.WBinstr(WBIR[7:0]),
+	.PCwrite(PCWrite),.Countwrite(Countwrite),.MemRead(MemRead),.MemWrite(MemWrite),.NOOPSel1(NOOPSel1),.S1Load(S1Load),.NOOPSel2(NOOPSel2),.S2Load(S2Load),
 	.R1Sel(R1Sel),.RegWsel(RegWsel),.RFWrite(RFWrite),.R1B(R1B),.R2B(R2B),.NOOPSel3(NOOPSel3),.S3Load(S3Load),.FlagWrite(FlagWrite),.ALU3(ALU3),.NOOPSel4(NOOPSel4),.WBIRLoad(WBIRLoad),
-	.ALU1(ALU1),.ALU2(ALU2),.ALUop(ALUOp),.IRMEMwire(IRMEMwire[3:0]),.Bsel(BSel)
+	.ALU1(ALU1),.ALU2(ALU2),.ALUop(ALUOp),.IRMEMwire(IRMEMwire[3:0]),.Bsel(BSel),.M1(M1),.M2(M2)
 );
 
 /***********************STAGE 1 BEGIN*************************/
 
-/*PCSel*/
-mux2to1_8bit 		AddrSel_mux(
-	.data0x(PC3wire),.data1x(NextPCwire),
-	.sel(AddrSel),.result(AddrWire)
-);
 
 mux3to1_8bit 		BranchSel_mux(
 	.data0x(PCwire),.data1x(BranchedPCWire),.data2x(PC4wire),
@@ -103,7 +98,7 @@ mux3to1_8bit 		BranchSel_mux(
 /*PC Reg*/
 register_8bit	PC(
 	.clock(clock),.aclr(reset),.enable(PCWrite),
-	.data(AddrWire),.q(PCwire)
+	.data(NextPCwire),.q(PCwire)
 );
 
 /* PC + 1 */
@@ -114,7 +109,7 @@ Adder		PCAdder(
 /* Dual memory */
 memory	DualMem(
 	.MemRead(MemRead),.wren(MemWrite),.clock(clock),
-	.address(R2wire),.data(R1wire),.q(MEMwire),.address_pc(AddrWire2),.q_pc(IRMEMwire) 
+	.address(memhaz1out),.data(memhaz2out),.q(MEMwire),.address_pc(AddrWire2),.q_pc(IRMEMwire) 
 );
 
 /* No-Op Mux 1 */ ///////////////////////Hardware Mod
@@ -129,10 +124,10 @@ register_8bit	DIR_reg(
 	.data(NOOPMuxWire1),.q(DIR)
 );
 
-/*PC1*/
+/*PC1*/  
 register_8bit	PC1(
 	.clock(clock),.aclr(reset),.enable(S1Load),
-	.data(AddrWire),.q(PC1wire)
+	.data(NextPCwire),.q(PC1wire)
 );
 
 /***********************STAGE 1 END*************************/
@@ -244,6 +239,18 @@ mux4to1_8bit 		ALU2_mux(
 	.data2x(ZE5wire),.data3x(ZE3wire),.sel(ALU2),.result(ALU2wire)
 );
 
+/*Mem address forwarding*/
+mux2to1_8bit 		memhaz1_mux(
+	.data0x(ALUOut),.data1x(R2wire),
+	.sel(M1),.result(memhaz1out)
+);
+
+/*Mem data forwarding*/
+mux2to1_8bit 		memhaz2_mux(
+	.data0x(ALUOut),.data1x(R1wire),
+	.sel(M2),.result(memhaz2out)
+);
+
 /* ALU */
 ALU		ALU(
 	.in1(ALU1wire),.in2(ALU2wire),.out(ALUwire),
@@ -333,43 +340,40 @@ assign NOOPWire = 8'b00001010;
 // ------------------------- LEDs Indicator ------------------------- //
 always @ (*)
 begin
+
     case({SW[4],SW[3]})
     2'b00:
     begin
-      LEDR[9] <= Countwrite;
-      LEDR[8] <= PCWrite;
-      LEDR[7] <= AddrSel;
-      LEDR[6] <= S1Load;
-      LEDR[5] <= NOOPSel1;
-      LEDR[4:3] <= BSel;
-      LEDR[2] <= 0;
-      LEDR[1] <= S2Load;
-      LEDR[0] <= NOOPSel2;
+      LEDR[9] = 0;
+      LEDR[8] = 0;
+      LEDR[7] = 0;
+      LEDR[6] = 0;
+      LEDR[5] = 0;
+      LEDR[4] = 0;
+      LEDR[3] = 0;
+      LEDR[2] = 0;
+      LEDR[1] = 0;
+      LEDR[0] = 0;
     end
 
     2'b01:
     begin
-      LEDR[9] <= ALU1;
-      LEDR[8:7] <= ALU2;
-      LEDR[6:4] <= ALUOp;
-      LEDR[3] <= FlagWrite;
-		LEDR[2] <= ALU3;
-      LEDR[1] <= S3Load;
-      LEDR[0] <= NOOPSel3;
+      LEDR[9] = 0;
+      LEDR[8:6] = 0;
+      LEDR[5:3] = 0;
+      LEDR[2] = 0;
+      LEDR[1] = 0;
+      LEDR[0] = 0;
     end
 
     2'b10:
     begin
-      LEDR[9] <= WBIRLoad;
-      LEDR[8] <= NOOPSel4;
-      LEDR[7] <= MemRead;
-      LEDR[6] <= MemWrite;
-      LEDR[5] <= RegWsel;
-      LEDR[4] <= RFWrite;
-		LEDR[3] <= 1'b0;
-		LEDR[2] <= 1'b0;
-		LEDR[1] <= 1'b0;
-		LEDR[0] <= 1'b0;
+      LEDR[9] = 0;
+      LEDR[8] = 0;
+      LEDR[7] = 0;
+      LEDR[6:2] = 0;
+      LEDR[1] = 0;
+      LEDR[0] = 0;
     end
 
     2'b11:

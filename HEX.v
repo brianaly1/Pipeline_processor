@@ -97,10 +97,10 @@ begin
 	   2'b10: begin //display counter
 		hex_in_0 = in0[7:4];
 	   hex_in_1 = in0[3:0];
-	   hex_in_2 = in4[15:12];
-	   hex_in_3 = in4[11:8];
-	   hex_in_4 = in4[7:4];
-	   hex_in_5 = in4[3:0];
+	   hex_in_2 = in4[3:0];
+	   hex_in_3 = in4[7:4];
+	   hex_in_4 = in4[11:8];
+	   hex_in_5 = in4[15:12];
       end
 	   2'b11: begin //display counter
 	   hex_in_0 = in4[15:12];

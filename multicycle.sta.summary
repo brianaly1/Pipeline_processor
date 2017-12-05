@@ -2,180 +2,372 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'KEY[0]'
+Slack : -14.258
+TNS   : -103.472
+
 Type  : Slow 1100mV 85C Model Setup 'KEY[1]'
-Slack : -10.624
-TNS   : -613.655
+Slack : -12.584
+TNS   : -630.128
 
-Type  : Slow 1100mV 85C Model Setup 'FSM:Control|state.normal_op'
-Slack : -8.853
-TNS   : -113.908
+Type  : Slow 1100mV 85C Model Setup 'register_8bit:XIR_reg|q[0]'
+Slack : -10.760
+TNS   : -37.413
 
-Type  : Slow 1100mV 85C Model Setup 'FSM:Control|stage4.s4_Add_416'
-Slack : -2.154
-TNS   : -2.154
+Type  : Slow 1100mV 85C Model Setup 'register_8bit:WBIR_reg|q[0]'
+Slack : -10.158
+TNS   : -27.170
+
+Type  : Slow 1100mV 85C Model Setup 'FSM:Control|stage4.s4_Add_832'
+Slack : -6.144
+TNS   : -6.144
 
 Type  : Slow 1100mV 85C Model Hold 'KEY[1]'
-Slack : -7.236
-TNS   : -423.901
+Slack : -5.875
+TNS   : -232.799
 
-Type  : Slow 1100mV 85C Model Hold 'FSM:Control|state.normal_op'
-Slack : 0.815
+Type  : Slow 1100mV 85C Model Hold 'KEY[0]'
+Slack : -4.006
+TNS   : -26.854
+
+Type  : Slow 1100mV 85C Model Hold 'register_8bit:XIR_reg|q[0]'
+Slack : -1.315
+TNS   : -2.614
+
+Type  : Slow 1100mV 85C Model Hold 'register_8bit:WBIR_reg|q[0]'
+Slack : -1.178
+TNS   : -2.361
+
+Type  : Slow 1100mV 85C Model Hold 'FSM:Control|stage4.s4_Add_832'
+Slack : 4.772
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Hold 'FSM:Control|stage4.s4_Add_416'
-Slack : 1.234
+Type  : Slow 1100mV 85C Model Recovery 'register_8bit:XIR_reg|q[0]'
+Slack : -9.974
+TNS   : -18.301
+
+Type  : Slow 1100mV 85C Model Recovery 'FSM:Control|stage4.s4_Add_832'
+Slack : -8.232
+TNS   : -8.232
+
+Type  : Slow 1100mV 85C Model Recovery 'register_8bit:WBIR_reg|q[0]'
+Slack : -7.725
+TNS   : -7.725
+
+Type  : Slow 1100mV 85C Model Recovery 'KEY[1]'
+Slack : -2.595
+TNS   : -350.406
+
+Type  : Slow 1100mV 85C Model Removal 'KEY[1]'
+Slack : -2.411
+TNS   : -324.541
+
+Type  : Slow 1100mV 85C Model Removal 'register_8bit:WBIR_reg|q[0]'
+Slack : 1.109
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Recovery 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.598
-TNS   : -0.598
+Type  : Slow 1100mV 85C Model Removal 'register_8bit:XIR_reg|q[0]'
+Slack : 1.514
+TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Removal 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.162
-TNS   : -0.162
+Type  : Slow 1100mV 85C Model Removal 'FSM:Control|stage4.s4_Add_832'
+Slack : 5.135
+TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[1]'
 Slack : -2.636
-TNS   : -214.873
+TNS   : -223.151
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'FSM:Control|state.normal_op'
-Slack : 0.331
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'register_8bit:XIR_reg|q[0]'
+Slack : -0.240
+TNS   : -0.847
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
+Slack : 0.011
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.433
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'register_8bit:WBIR_reg|q[0]'
+Slack : 0.269
 TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_832'
+Slack : 0.472
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'KEY[0]'
+Slack : -13.892
+TNS   : -101.913
 
 Type  : Slow 1100mV 0C Model Setup 'KEY[1]'
-Slack : -10.294
-TNS   : -591.150
+Slack : -12.211
+TNS   : -604.069
 
-Type  : Slow 1100mV 0C Model Setup 'FSM:Control|state.normal_op'
-Slack : -8.776
-TNS   : -112.578
+Type  : Slow 1100mV 0C Model Setup 'register_8bit:XIR_reg|q[0]'
+Slack : -10.659
+TNS   : -37.008
 
-Type  : Slow 1100mV 0C Model Setup 'FSM:Control|stage4.s4_Add_416'
-Slack : -2.175
-TNS   : -2.175
+Type  : Slow 1100mV 0C Model Setup 'register_8bit:WBIR_reg|q[0]'
+Slack : -9.993
+TNS   : -26.813
+
+Type  : Slow 1100mV 0C Model Setup 'FSM:Control|stage4.s4_Add_832'
+Slack : -6.032
+TNS   : -6.032
 
 Type  : Slow 1100mV 0C Model Hold 'KEY[1]'
-Slack : -7.096
-TNS   : -426.327
+Slack : -5.779
+TNS   : -237.718
 
-Type  : Slow 1100mV 0C Model Hold 'FSM:Control|state.normal_op'
-Slack : 0.752
+Type  : Slow 1100mV 0C Model Hold 'KEY[0]'
+Slack : -4.033
+TNS   : -26.526
+
+Type  : Slow 1100mV 0C Model Hold 'register_8bit:XIR_reg|q[0]'
+Slack : -1.391
+TNS   : -2.743
+
+Type  : Slow 1100mV 0C Model Hold 'register_8bit:WBIR_reg|q[0]'
+Slack : -1.273
+TNS   : -2.567
+
+Type  : Slow 1100mV 0C Model Hold 'FSM:Control|stage4.s4_Add_832'
+Slack : 4.611
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Hold 'FSM:Control|stage4.s4_Add_416'
-Slack : 1.170
+Type  : Slow 1100mV 0C Model Recovery 'register_8bit:XIR_reg|q[0]'
+Slack : -9.797
+TNS   : -17.980
+
+Type  : Slow 1100mV 0C Model Recovery 'FSM:Control|stage4.s4_Add_832'
+Slack : -8.045
+TNS   : -8.045
+
+Type  : Slow 1100mV 0C Model Recovery 'register_8bit:WBIR_reg|q[0]'
+Slack : -7.517
+TNS   : -7.517
+
+Type  : Slow 1100mV 0C Model Recovery 'KEY[1]'
+Slack : -2.531
+TNS   : -342.288
+
+Type  : Slow 1100mV 0C Model Removal 'KEY[1]'
+Slack : -2.289
+TNS   : -307.173
+
+Type  : Slow 1100mV 0C Model Removal 'register_8bit:WBIR_reg|q[0]'
+Slack : 0.971
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Recovery 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.674
-TNS   : -0.674
+Type  : Slow 1100mV 0C Model Removal 'register_8bit:XIR_reg|q[0]'
+Slack : 1.461
+TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Removal 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.154
-TNS   : -0.154
+Type  : Slow 1100mV 0C Model Removal 'FSM:Control|stage4.s4_Add_832'
+Slack : 4.969
+TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[1]'
 Slack : -2.636
-TNS   : -209.710
+TNS   : -216.319
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'FSM:Control|state.normal_op'
-Slack : 0.325
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'register_8bit:XIR_reg|q[0]'
+Slack : -0.304
+TNS   : -1.241
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : 0.036
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.420
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'register_8bit:WBIR_reg|q[0]'
+Slack : 0.315
 TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_832'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'KEY[0]'
+Slack : -8.531
+TNS   : -50.520
 
 Type  : Fast 1100mV 85C Model Setup 'KEY[1]'
-Slack : -6.915
-TNS   : -375.456
+Slack : -8.260
+TNS   : -392.679
 
-Type  : Fast 1100mV 85C Model Setup 'FSM:Control|state.normal_op'
-Slack : -4.593
-TNS   : -57.672
+Type  : Fast 1100mV 85C Model Setup 'register_8bit:XIR_reg|q[0]'
+Slack : -5.816
+TNS   : -19.389
 
-Type  : Fast 1100mV 85C Model Setup 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.925
-TNS   : -0.925
+Type  : Fast 1100mV 85C Model Setup 'register_8bit:WBIR_reg|q[0]'
+Slack : -5.296
+TNS   : -14.149
+
+Type  : Fast 1100mV 85C Model Setup 'FSM:Control|stage4.s4_Add_832'
+Slack : -3.597
+TNS   : -3.597
 
 Type  : Fast 1100mV 85C Model Hold 'KEY[1]'
-Slack : -4.204
-TNS   : -216.161
+Slack : -3.408
+TNS   : -115.737
 
-Type  : Fast 1100mV 85C Model Hold 'FSM:Control|state.normal_op'
-Slack : 0.330
+Type  : Fast 1100mV 85C Model Hold 'KEY[0]'
+Slack : -2.561
+TNS   : -17.414
+
+Type  : Fast 1100mV 85C Model Hold 'register_8bit:XIR_reg|q[0]'
+Slack : -0.665
+TNS   : -1.307
+
+Type  : Fast 1100mV 85C Model Hold 'register_8bit:WBIR_reg|q[0]'
+Slack : -0.602
+TNS   : -1.131
+
+Type  : Fast 1100mV 85C Model Hold 'FSM:Control|stage4.s4_Add_832'
+Slack : 3.225
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.959
+Type  : Fast 1100mV 85C Model Recovery 'register_8bit:XIR_reg|q[0]'
+Slack : -5.453
+TNS   : -9.826
+
+Type  : Fast 1100mV 85C Model Recovery 'FSM:Control|stage4.s4_Add_832'
+Slack : -4.054
+TNS   : -4.054
+
+Type  : Fast 1100mV 85C Model Recovery 'register_8bit:WBIR_reg|q[0]'
+Slack : -3.853
+TNS   : -3.853
+
+Type  : Fast 1100mV 85C Model Recovery 'KEY[1]'
+Slack : -1.613
+TNS   : -217.988
+
+Type  : Fast 1100mV 85C Model Removal 'KEY[1]'
+Slack : -1.309
+TNS   : -176.343
+
+Type  : Fast 1100mV 85C Model Removal 'register_8bit:WBIR_reg|q[0]'
+Slack : 0.667
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Recovery 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.007
+Type  : Fast 1100mV 85C Model Removal 'register_8bit:XIR_reg|q[0]'
+Slack : 1.108
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Removal 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.089
-TNS   : -0.089
+Type  : Fast 1100mV 85C Model Removal 'FSM:Control|stage4.s4_Add_832'
+Slack : 2.905
+TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[1]'
 Slack : -2.636
-TNS   : -170.907
+TNS   : -176.117
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'FSM:Control|state.normal_op'
-Slack : 0.318
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
+Slack : -0.205
+TNS   : -2.031
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'register_8bit:XIR_reg|q[0]'
+Slack : 0.161
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.477
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'register_8bit:WBIR_reg|q[0]'
+Slack : 0.320
 TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_832'
+Slack : 0.495
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'KEY[0]'
+Slack : -7.649
+TNS   : -47.240
 
 Type  : Fast 1100mV 0C Model Setup 'KEY[1]'
-Slack : -5.921
-TNS   : -315.324
+Slack : -7.306
+TNS   : -338.454
 
-Type  : Fast 1100mV 0C Model Setup 'FSM:Control|state.normal_op'
-Slack : -4.418
-TNS   : -55.506
+Type  : Fast 1100mV 0C Model Setup 'register_8bit:XIR_reg|q[0]'
+Slack : -5.519
+TNS   : -18.455
 
-Type  : Fast 1100mV 0C Model Setup 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.814
-TNS   : -0.814
+Type  : Fast 1100mV 0C Model Setup 'register_8bit:WBIR_reg|q[0]'
+Slack : -4.971
+TNS   : -13.469
+
+Type  : Fast 1100mV 0C Model Setup 'FSM:Control|stage4.s4_Add_832'
+Slack : -3.365
+TNS   : -3.365
 
 Type  : Fast 1100mV 0C Model Hold 'KEY[1]'
-Slack : -4.159
-TNS   : -224.700
+Slack : -3.428
+TNS   : -121.401
 
-Type  : Fast 1100mV 0C Model Hold 'FSM:Control|state.normal_op'
-Slack : 0.327
+Type  : Fast 1100mV 0C Model Hold 'KEY[0]'
+Slack : -2.491
+TNS   : -17.054
+
+Type  : Fast 1100mV 0C Model Hold 'register_8bit:XIR_reg|q[0]'
+Slack : -0.618
+TNS   : -1.232
+
+Type  : Fast 1100mV 0C Model Hold 'register_8bit:WBIR_reg|q[0]'
+Slack : -0.582
+TNS   : -1.097
+
+Type  : Fast 1100mV 0C Model Hold 'FSM:Control|stage4.s4_Add_832'
+Slack : 3.086
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.906
+Type  : Fast 1100mV 0C Model Recovery 'register_8bit:XIR_reg|q[0]'
+Slack : -5.157
+TNS   : -9.370
+
+Type  : Fast 1100mV 0C Model Recovery 'FSM:Control|stage4.s4_Add_832'
+Slack : -3.858
+TNS   : -3.858
+
+Type  : Fast 1100mV 0C Model Recovery 'register_8bit:WBIR_reg|q[0]'
+Slack : -3.665
+TNS   : -3.665
+
+Type  : Fast 1100mV 0C Model Recovery 'KEY[1]'
+Slack : -1.602
+TNS   : -216.636
+
+Type  : Fast 1100mV 0C Model Removal 'KEY[1]'
+Slack : -1.284
+TNS   : -172.837
+
+Type  : Fast 1100mV 0C Model Removal 'register_8bit:WBIR_reg|q[0]'
+Slack : 0.633
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Recovery 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.021
+Type  : Fast 1100mV 0C Model Removal 'register_8bit:XIR_reg|q[0]'
+Slack : 1.109
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Removal 'FSM:Control|stage4.s4_Add_416'
-Slack : -0.084
-TNS   : -0.084
+Type  : Fast 1100mV 0C Model Removal 'FSM:Control|stage4.s4_Add_832'
+Slack : 2.761
+TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[1]'
 Slack : -2.636
-TNS   : -168.641
+TNS   : -173.129
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'FSM:Control|state.normal_op'
-Slack : 0.348
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : -0.186
+TNS   : -2.144
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'register_8bit:XIR_reg|q[0]'
+Slack : 0.167
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_416'
-Slack : 0.480
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'register_8bit:WBIR_reg|q[0]'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'FSM:Control|stage4.s4_Add_832'
+Slack : 0.486
 TNS   : 0.000
 
 ------------------------------------------------------------

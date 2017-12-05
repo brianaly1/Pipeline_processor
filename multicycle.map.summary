@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Nov 28 02:09:37 2017
+Analysis & Synthesis Status : Successful - Fri Dec 01 20:29:42 2017
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : multicycle
 Top-level Entity Name : multicycle
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 124
+Total registers : 130
 Total pins : 67
 Total virtual pins : 0
 Total block memory bits : 2,048
